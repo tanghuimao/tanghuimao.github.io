@@ -1,7 +1,7 @@
 # Site settings
 title: HM Blog
 SEOTitle: Blog | Learn
-header-img: img/post-bg-coffee.jpg
+header-img: img/post-bg-desk.jpg
 email: 4253327465@qq.com
 description: "Every failure is leading towards success."
 keyword: "HM, Learn, Blog, tanghuimao, 珲茂, java, html, app"
@@ -12,7 +12,7 @@ github_repo: "https://github.com/tanghuimao/tanghuimao.github.io.git" # you code
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "我一直以为人生慢慢变老的，其实不是，人生一瞬间变老的。"
-sidebar-avatar: /img/hm.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: https://tanghuimao.github.io/img/hm.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
