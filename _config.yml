@@ -12,7 +12,7 @@ github_repo: "https://github.com/tanghuimao/tanghuimao.github.io.git" # you code
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "我一直以为人生慢慢变老的，其实不是，人生一瞬间变老的。"
-sidebar-avatar: /img/avatar-g.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: img/avatar-g.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
@@ -59,11 +59,11 @@ kramdown:
 # Gitalk
 gitalk:
   enable: true    #是否开启Gitalk评论
-  clientID: f2c84e7629bb1446c1a4                            #生成的clientID
-  clientSecret: ca6d6139d1e1b8c43f8b2e19492ddcac8b322d0d    #生成的clientSecret
-  repo: qiubaiying.github.io    #仓库名称
-  owner: qiubaiying    #github用户名
-  admin: qiubaiying
+  clientID: 9a8c39dafd1f87dc30c7                            #生成的clientID
+  clientSecret: a21133570cd727eed8c2619f4105cb4bf93194bc    #生成的clientSecret
+  repo: tanghuimao.github.io    #仓库名称
+  owner: tanghuimao    #github用户名
+  admin: tanghuimao
   distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 
