@@ -106,9 +106,9 @@ StringBuilder：
         return new String(buf, true);
     }
 
-### StringBuffer和StringBuffer是可变的字符序列，怎么理解？
+### StringBuffer和StringBuilder是可变的字符序列，怎么理解？
 
-当我们在调用StringBuffer和StringBuffer的append方法时、是直接调用其父类AbstractStringBuilder类的append方法，先获取添加字符的长度，将原先的char数组进行复制成新数组（char数组长度+字符长度）将value的指向新数组，返回当前对象。
+当我们在调用StringBuffer和StringBuilder的append方法时、是直接调用其父类AbstractStringBuilder类的append方法，先获取添加字符的长度，将原先的char数组进行复制成新数组（char数组长度+字符长度）将value的指向新数组，返回当前对象。
 
     public AbstractStringBuilder append(String str) {
         if (str == null)
