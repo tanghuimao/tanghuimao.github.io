@@ -1,10 +1,10 @@
 # Site settings
 title: HM Blog
-SEOTitle: Blog | Learn
+SEOTitle: HM | Blog
 header-img: img/post-bg-coffee.jpeg
 email: 4253327465@qq.com
 description: "Every failure is leading towards success."
-keyword: "HM, Learn, Blog, tanghuimao, 珲茂, java, html, app"
+keyword: "HM, Learn, Blog, tanghuimao, 珲茂, java, html"
 url: "http://tanghuimao.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/tanghuimao/tanghuimao.github.io.git" # you code repository
@@ -97,15 +97,16 @@ service-worker: true
 friends: [
     {
         title: "WY",
-        href: "http://zhengwuyang.com"
-    },{
-        title: "简书·BY",
-        href: "http://www.jianshu.com/u/e71990ada2fd"
-    },{
-        title: "Apple",
-        href: "https://apple.com"
-    },{
-        title: "Apple Developer",
-        href: "https://developer.apple.com/"
+        href: "https://github.com/GarenMorbid"
     }
+    #,{
+    #    title: "简书·BY",
+    #    href: "http://www.jianshu.com/u/e71990ada2fd"
+    #},{
+    #    title: "Apple",
+    #    href: "https://apple.com"
+    #},{
+    #    title: "Apple Developer",
+    #    href: "https://developer.apple.com/"
+    #}
 ]
