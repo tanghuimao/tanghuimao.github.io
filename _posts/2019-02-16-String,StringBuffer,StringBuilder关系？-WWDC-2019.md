@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      String,StringBuffer，StringBuilder关系？
-subtitle:   String,StringBuffer，StringBuilder底层是如何实现的呢？
+title:      String,StringBuffer,StringBuilder关系？
+subtitle:   String,StringBuffer,StringBuilder底层是如何实现的呢？
 date:       2019-02-16
 author:     HM
 header-img: img/post-bg-coffee.jpeg
@@ -14,21 +14,21 @@ tags:
 
 ## 前言
 
-对于很多初学Java的同学来说String,StringBuffer，StringBuilder三者之间的关系和底层的实现原理，相对来说不是那么容易理解。
+对于很多初学Java的同学来说String,StringBuffer,StringBuilder三者之间的关系和底层的实现原理，相对来说不是那么容易理解。
 那么这篇文章可能会对你有所帮助。
 
 
-## String,StringBuffer，StringBuilder
+## String,StringBuffer,StringBuilder
 
 >关键词：String,StringBuffer,StringBuilder
 
-### String,StringBuffer，StringBuilder关系？ 
+### String,StringBuffer,StringBuilder关系？ 
 
-String,StringBuffer，StringBuilder他们三者都是由final所修饰的类（可以查看其源码），通常由final修饰的类是不能被继承，如果对final关键字的特点和含义不明白可以自行下来了解，这里暂时不做深究；
+String,StringBuffer,StringBuilder他们三者都是由final所修饰的类（可以查看其源码），通常由final修饰的类是不能被继承，如果对final关键字的特点和含义不明白可以自行下来了解，这里暂时不做深究；
 
 String,StringBuffer，StringBuilder都是字符序列。
 
-### String,StringBuffer，StringBuilder为什么都是字符序列？ 
+### String,StringBuffer,StringBuilder为什么都是字符序列？ 
 
 String类他本身底层实现的原理是由一个final修饰的char类型数组实现，因此String类为不可变字符序列。
 
