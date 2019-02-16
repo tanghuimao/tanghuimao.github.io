@@ -10,7 +10,6 @@ tags:
     - String
     - StringBuffer
     - StringBuilder
-    - 字符序列
 ---
 
 ## 前言
