@@ -96,7 +96,7 @@ service-worker: true
 # Friends
 friends: [
     {
-        title: "WY",
+        title: "Garen",
         href: "https://github.com/GarenMorbid"
     }
     #,{
