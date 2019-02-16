@@ -21,7 +21,7 @@ tags:
 
 ## String,StringBuffer，StringBuilder
 
->关键词：String,StringBuffer，StringBuilder
+>关键词：String,StringBuffer,StringBuilder
 
 ### String,StringBuffer，StringBuilder关系？ 
 
@@ -34,6 +34,7 @@ String,StringBuffer，StringBuilder都是字符序列。
 String类他本身底层实现的原理是由一个final修饰的char类型数组实现，因此String类为不可变字符序列。
 
 以下为String类源码一部分：
+
     public final class String implements java.io.Serializable, Comparable<String>, CharSequence {
         /** The value is used for character storage. */
         private final char value[];
@@ -42,7 +43,9 @@ String类他本身底层实现的原理是由一个final修饰的char类型数�
         /** use serialVersionUID from JDK 1.0.2 for interoperability */
         private static final long serialVersionUID = -6849794470754667710L;
 
-StringBuffer和StringBuilder则是继承其同一父类AbstractStringBuilder类，AbstractStringBuilder类底层则是char类型的数组实现，因此StringBuffer和StringBuilder为可变字符序列。以下为StringBuffer和StringBuilder和AbstractStringBuilder的部分源码：
+StringBuffer和StringBuilder则是继承其同一父类AbstractStringBuilder类，AbstractStringBuilder类底层则是char类型的数组实现，因此StringBuffer和StringBuilder为可变字符序列。
+
+以下为StringBuffer和StringBuilder和AbstractStringBuilder的部分源码：
 
 AbstractStringBuilder：
 
