@@ -60,9 +60,9 @@ tags:
 
 <font color="#000000" size="3" face="宋体">下面总结了一些使用final关键字的好处</font>
 
-- final关键字提高了性能。JVM和Java应用都会缓存final变量。
-- final变量可以安全的在多线程环境下进行共享，而不需要额外的同步开销。
-- 使用final关键字，JVM会对方法、变量及类进行优化。
+- <font color="#000000" size="3" face="宋体">final关键字提高了性能。JVM和Java应用都会缓存final变量。</font>
+- <font color="#000000" size="3" face="宋体">final变量可以安全的在多线程环境下进行共享，而不需要额外的同步开销。</font>
+- <font color="#000000" size="3" face="宋体">使用final关键字，JVM会对方法、变量及类进行优化。</font>
 
 ## - 结语
 
