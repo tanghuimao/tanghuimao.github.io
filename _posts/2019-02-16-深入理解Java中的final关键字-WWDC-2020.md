@@ -16,7 +16,7 @@ tags:
 
 ## - final
 
-<font color="#FF3030" size="4" face="宋体">>关键词：final</font>
+><font color="#FF3030" size="4" face="宋体">关键词：final</font>
 
 ### - final关键字的含义？
 

@@ -19,7 +19,7 @@ tags:
 
 ## - String,StringBuffer,StringBuilder
 
-<font color="#FF3030" size="3" face="宋体">>关键词：String,StringBuffer,StringBuilder</font>
+><font color="#FF3030" size="3" face="宋体">关键词：String,StringBuffer,StringBuilder</font>
 
 ### - String,StringBuffer,StringBuilder关系？ 
 
