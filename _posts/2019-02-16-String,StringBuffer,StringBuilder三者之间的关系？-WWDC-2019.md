@@ -25,10 +25,10 @@ tags:
 
 <font color="#000000" size="3" face="宋体">String,StringBuffer,StringBuilder他们三者都是由final所修饰的类（可以查看其源码），通常由final修饰的类是不能被继承，如果对final关键字的特点和含义不明白，可以查看<a href="https://tanghuimao.github.io/2019/02/18/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E4%B8%AD%E7%9A%84final%E5%85%B3%E9%94%AE%E5%AD%97-WWDC-2020/">《深入理解Java中的final关键字》</a>进行了解。</font>
 
-String,StringBuffer，StringBuilder都是字符序列。
+<font color="#000000" size="3" face="宋体">String,StringBuffer，StringBuilder都是字符序列。</font>
 
 ### - String,StringBuffer,StringBuilder为什么都是字符序列？ 
-<font color="#000000" size="3" face="宋体">String类他本身底层实现的原理是由**一个final修饰的char类型数组**实现，因此String类为不可变字符序列。</font>
+<font color="#000000" size="3" face="宋体">String类他本身底层实现的原理是由<strong>一个final修饰的char类型数组</strong>实现，因此String类为不可变字符序列。</font>
 
 <font color="#000000" size="3" face="宋体">以下为String类源码一部分：</font>
 
@@ -40,11 +40,11 @@ String,StringBuffer，StringBuilder都是字符序列。
         /** use serialVersionUID from JDK 1.0.2 for interoperability */
         private static final long serialVersionUID = -6849794470754667710L;
 
-<font color="#000000" size="3" face="宋体">StringBuffer和StringBuilder则是继承其同一父类AbstractStringBuilder类，AbstractStringBuilder类底层则是**没有final修饰char类型的数组**实现，因此StringBuffer和StringBuilder为可变字符序列。</font>
+<font color="#000000" size="3" face="宋体">StringBuffer和StringBuilder则是继承其同一父类AbstractStringBuilder类，AbstractStringBuilder类底层则是<strong>没有final修饰char类型的数组</strong>实现，因此StringBuffer和StringBuilder为可变字符序列。</font>
 
 <font color="#000000" size="3" face="宋体">以下为StringBuffer和StringBuilder和AbstractStringBuilder的部分源码：</font>
 
-<font color="#000000" size="3" face="宋体">**AbstractStringBuilder**：</font>
+<font color="#000000" size="3" face="宋体"><strong>AbstractStringBuilder</strong>：</font>
 
     abstract class AbstractStringBuilder implements Appendable, CharSequence {
         /**
@@ -57,7 +57,7 @@ String,StringBuffer，StringBuilder都是字符序列。
         */
         int count;
 
-<font color="#000000" size="3" face="宋体">**StringBuffer**：</font>
+<font color="#000000" size="3" face="宋体"><strong>StringBuffer</strong>：</font>
 
     public final class StringBuffer extends AbstractStringBuilder implements java.io.Serializable, CharSequence{
         /**
@@ -69,7 +69,7 @@ String,StringBuffer，StringBuilder都是字符序列。
         /** use serialVersionUID from JDK 1.0.2 for interoperability */
         static final long serialVersionUID = 3388685877147921107L;
 
-<font color="#000000" size="3" face="宋体">**StringBuilder**：</font>
+<font color="#000000" size="3" face="宋体"><strong>StringBuilder</strong>：</font>
 
     public final class StringBuilder extends AbstractStringBuilder implements java.io.Serializable, CharSequence{
         /** use serialVersionUID for interoperability */
@@ -107,7 +107,7 @@ String,StringBuffer，StringBuilder都是字符序列。
 
 ### - StringBuffer和StringBuilder是可变的字符序列，怎么理解？
 
-<font color="#000000" size="3" face="宋体">当我们在调用StringBuffer和StringBuilder的**append**方法时、是直接调用其父类AbstractStringBuilder类的**append**方法，先获取添加字符的长度，将原先的char数组进行复制成新数组（char数组长度+字符长度）将value的指向新数组，返回当前对象。</font>
+<font color="#000000" size="3" face="宋体">当我们在调用StringBuffer和StringBuilder的<strong>append</strong>方法时、是直接调用其父类AbstractStringBuilder类的<strong>append</strong>方法，先获取添加字符的长度，将原先的char数组进行复制成新数组（char数组长度+字符长度）将value的指向新数组，返回当前对象。</font>
 
     public AbstractStringBuilder append(String str) {
         if (str == null)
