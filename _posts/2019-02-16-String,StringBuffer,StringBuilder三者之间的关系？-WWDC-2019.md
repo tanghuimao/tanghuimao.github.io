@@ -12,27 +12,25 @@ tags:
     - StringBuilder
 ---
 
-## 前言
+## - 前言
 
-对于很多初学Java的同学来说String,StringBuffer,StringBuilder三者之间的关系和底层的实现原理，相对来说不是那么容易理解。
-那么这篇文章可能会对你有所帮助。
+<font color="#000000" size="3" face="宋体">对于很多初学Java的同学来说String,StringBuffer,StringBuilder三者之间的关系和底层的实现原理，相对来说不是那么容易理解。
+那么这篇文章可能会对你有所帮助。</font>
 
+## - String,StringBuffer,StringBuilder
 
-## String,StringBuffer,StringBuilder
+<font color="#FF3030" size="3" face="宋体">>关键词：String,StringBuffer,StringBuilder</font>
 
->关键词：String,StringBuffer,StringBuilder
+### - String,StringBuffer,StringBuilder关系？ 
 
-### String,StringBuffer,StringBuilder关系？ 
+<font color="#000000" size="3" face="宋体">String,StringBuffer,StringBuilder他们三者都是由final所修饰的类（可以查看其源码），通常由final修饰的类是不能被继承，如果对final关键字的特点和含义不明白</font>
 
-String,StringBuffer,StringBuilder他们三者都是由final所修饰的类（可以查看其源码），通常由final修饰的类是不能被继承，如果对final关键字的特点和含义不明白可以自行下来了解，这里暂时不做深究；
+<font color="#000000" size="3" face="宋体">String,StringBuffer，StringBuilder都是字符序列。</font>
 
-String,StringBuffer，StringBuilder都是字符序列。
+### - String,StringBuffer,StringBuilder为什么都是字符序列？ 
+<font color="#000000" size="3" face="宋体">String类他本身底层实现的原理是由**一个final修饰的char类型数组**实现，因此String类为不可变字符序列。</font>
 
-### String,StringBuffer,StringBuilder为什么都是字符序列？ 
-
-String类他本身底层实现的原理是由一个final修饰的char类型数组实现，因此String类为不可变字符序列。
-
-以下为String类源码一部分：
+<font color="#000000" size="3" face="宋体">以下为String类源码一部分：</font>
 
     public final class String implements java.io.Serializable, Comparable<String>, CharSequence {
         /** The value is used for character storage. */
@@ -42,11 +40,11 @@ String类他本身底层实现的原理是由一个final修饰的char类型数�
         /** use serialVersionUID from JDK 1.0.2 for interoperability */
         private static final long serialVersionUID = -6849794470754667710L;
 
-StringBuffer和StringBuilder则是继承其同一父类AbstractStringBuilder类，AbstractStringBuilder类底层则是char类型的数组实现，因此StringBuffer和StringBuilder为可变字符序列。
+<font color="#000000" size="3" face="宋体">StringBuffer和StringBuilder则是继承其同一父类AbstractStringBuilder类，AbstractStringBuilder类底层则是**没有final修饰char类型的数组**实现，因此StringBuffer和StringBuilder为可变字符序列。</font>
 
-以下为StringBuffer和StringBuilder和AbstractStringBuilder的部分源码：
+<font color="#000000" size="3" face="宋体">以下为StringBuffer和StringBuilder和AbstractStringBuilder的部分源码：</font>
 
-AbstractStringBuilder：
+<font color="#000000" size="3" face="宋体">**AbstractStringBuilder**：</font>
 
     abstract class AbstractStringBuilder implements Appendable, CharSequence {
         /**
@@ -59,7 +57,7 @@ AbstractStringBuilder：
         */
         int count;
 
-StringBuffer：
+<font color="#000000" size="3" face="宋体">**StringBuffer**：</font>
 
     public final class StringBuffer extends AbstractStringBuilder implements java.io.Serializable, CharSequence{
         /**
@@ -71,7 +69,7 @@ StringBuffer：
         /** use serialVersionUID from JDK 1.0.2 for interoperability */
         static final long serialVersionUID = 3388685877147921107L;
 
-StringBuilder：
+<font color="#000000" size="3" face="宋体">**StringBuilder**：</font>
 
     public final class StringBuilder extends AbstractStringBuilder implements java.io.Serializable, CharSequence{
         /** use serialVersionUID for interoperability */
@@ -85,15 +83,16 @@ StringBuilder：
             super(16);
         }
 
-### String与StringBuffer区别？StringBuffer与StringBuilder区别？
+### - String与StringBuffer区别？StringBuffer与StringBuilder区别？
 
-- string为不可变的字符序列。
-- stringbuffer（线程安全），stringbuffer类的所有方法都是由synchronized修饰，因此是线程安全的。
-- stringbuilder（非线程安全），效率相对于stringbuffer更高。小提示：如果是在方法内部可以直接使用stringbuilder，不会有线程安全的问题。
+- <font color="#000000" size="3" face="宋体">string为不可变的字符序列。</font>
+- <font color="#000000" size="3" face="宋体">stringbuffer（线程安全），stringbuffer类的所有方法都是由synchronized修饰，因此是线程安全的。</font>
+- <font color="#000000" size="3" face="宋体">stringbuilder（非线程安全），效率相对于stringbuffer更高。<font color="#FF3030" size="3" face="宋体">小提示：如果是在方法内部可以直接使用stringbuilder，不会有线程安全的问题。</font>
+</font>
 
-### String是不可变的字符序列，怎么理解？
+### - String是不可变的字符序列，怎么理解？
 
-当我们在调用string的concat方法时、首先获取添加字符的长度，将原先的char数组进行复制成新数组（char数组长度+字符长度）由于value被final修饰指向不能改变，返回新的string对象回去。之前的string对象则变成垃圾对象，等待GC。
+<font color="#000000" size="3" face="宋体">当我们在调用string的concat方法时、首先获取添加字符的长度，将原先的char数组进行复制成新数组（char数组长度+字符长度）由于value被final修饰指向不能改变，返回新的string对象回去。之前的string对象则变成垃圾对象，等待GC。</font>
 
     public String concat(String str) {
         int otherLen = str.length();
@@ -106,9 +105,9 @@ StringBuilder：
         return new String(buf, true);
     }
 
-### StringBuffer和StringBuilder是可变的字符序列，怎么理解？
+### - StringBuffer和StringBuilder是可变的字符序列，怎么理解？
 
-当我们在调用StringBuffer和StringBuilder的append方法时、是直接调用其父类AbstractStringBuilder类的append方法，先获取添加字符的长度，将原先的char数组进行复制成新数组（char数组长度+字符长度）将value的指向新数组，返回当前对象。
+<font color="#000000" size="3" face="宋体">当我们在调用StringBuffer和StringBuilder的**append**方法时、是直接调用其父类AbstractStringBuilder类的**append**方法，先获取添加字符的长度，将原先的char数组进行复制成新数组（char数组长度+字符长度）将value的指向新数组，返回当前对象。</font>
 
     public AbstractStringBuilder append(String str) {
         if (str == null)
@@ -145,9 +144,10 @@ StringBuilder：
     }
 
 
-## 结语
+## - 结语
 
-上述内容仅供参考，不足之处望多多指教。
+<font color="#000000" size="3" face="宋体">上述内容仅供参考，不足之处望多多指教。</font>
+<font color="#000000" size="3" face="宋体"></font>
 
  
 
