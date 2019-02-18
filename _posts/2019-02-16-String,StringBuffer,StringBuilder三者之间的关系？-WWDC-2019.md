@@ -25,7 +25,7 @@ tags:
 
 <font color="#000000" size="3" face="宋体">String,StringBuffer,StringBuilder他们三者都是由final所修饰的类（可以查看其源码），通常由final修饰的类是不能被继承，如果对final关键字的特点和含义不明白，可以查看<a href="https://tanghuimao.github.io/2019/02/18/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E4%B8%AD%E7%9A%84final%E5%85%B3%E9%94%AE%E5%AD%97-WWDC-2020/">《深入理解Java中的final关键字》</a>进行了解。</font>
 
-<font color="#000000" size="3" face="宋体">String,StringBuffer，StringBuilder都是字符序列。</font>
+<font color="#000000" size="3" face="宋体"><br/>String,StringBuffer，StringBuilder都是字符序列。</font>
 
 ### - String,StringBuffer,StringBuilder为什么都是字符序列？ 
 <font color="#000000" size="3" face="宋体">String类他本身底层实现的原理是由<strong>一个final修饰的char类型数组</strong>实现，因此String类为不可变字符序列。</font>
@@ -43,8 +43,7 @@ tags:
 <font color="#000000" size="3" face="宋体">StringBuffer和StringBuilder则是继承其同一父类AbstractStringBuilder类，AbstractStringBuilder类底层则是<strong>没有final修饰char类型的数组</strong>实现，因此StringBuffer和StringBuilder为可变字符序列。</font>
 
 <font color="#000000" size="3" face="宋体">以下为StringBuffer和StringBuilder和AbstractStringBuilder的部分源码：</font>
-
-<font color="#000000" size="3" face="宋体"><strong>AbstractStringBuilder</strong>：</font>
+<font color="#000000" size="3" face="宋体"><strong><br/>AbstractStringBuilder</strong>：</font>
 
     abstract class AbstractStringBuilder implements Appendable, CharSequence {
         /**
@@ -88,7 +87,6 @@ tags:
 - <font color="#000000" size="3" face="宋体">string为不可变的字符序列。</font>
 - <font color="#000000" size="3" face="宋体">stringbuffer（线程安全），stringbuffer类的所有方法都是由synchronized修饰，因此是线程安全的。</font>
 - <font color="#000000" size="3" face="宋体">stringbuilder（非线程安全），效率相对于stringbuffer更高。<font color="#FF3030" size="3" face="宋体">小提示：如果是在方法内部可以直接使用stringbuilder，不会有线程安全的问题。</font>
-</font>
 
 ### - String是不可变的字符序列，怎么理解？
 

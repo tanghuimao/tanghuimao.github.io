@@ -54,7 +54,7 @@ tags:
 
 ### - final修饰类
 
-<font color="#000000" size="3" face="宋体">使用final来修饰的类叫作final类。final类通常功能是完整的，**它们不能被继承，也就没有子类** 。<font color="#FF3030" size="3" face="宋体">并且final类的所有方法都会被隐式的修饰成final</font>。Java中有许多类是final的，譬如String, Interger以及其他包装类。</font>
+<font color="#000000" size="3" face="宋体">使用final来修饰的类叫作final类。final类通常功能是完整的，<strong>它们不能被继承，也就没有子类</strong> 。<font color="#FF3030" size="3" face="宋体">并且final类的所有方法都会被隐式的修饰成final</font>。Java中有许多类是final的，譬如String, Interger以及其他包装类。</font>
 
 ### - final关键字的好处
 
