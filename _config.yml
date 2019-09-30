@@ -11,7 +11,7 @@ github_repo: "https://github.com/tanghuimao/tanghuimao.github.io.git" # you code
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "我一直以为人生慢慢变老的，其实不是，人生一瞬间变老的。"
+sidebar-about-description: "我一直以为人是慢慢变老的，其实不是，人生一瞬间变老的。"
 sidebar-avatar: /img/hm-touxiang.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
