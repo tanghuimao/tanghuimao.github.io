@@ -1,3 +1,15 @@
+---
+layout:     post
+title:      Java虚拟机
+subtitle:   JVM咱们Javaer的饭碗啊！
+date:       2023-08-04
+author:     HM
+header-img: img/post-bg-coffee.jpeg
+catalog: true
+tags:
+    - JVM
+---
+
 JVM优化
 
 **为什么要学习JVM优化**

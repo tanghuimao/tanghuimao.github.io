@@ -1,3 +1,16 @@
+---
+layout:     post
+title:      微秒级别的RabbitMq
+subtitle:   兔子就是跑得快！
+date:       2023-08-04
+author:     HM
+header-img: img/post-bg-coffee.jpeg
+catalog: true
+tags:
+    - RabbitMq
+    - 消息中间件
+---
+
 # RabbitMQ
 
 1、项目中为什么要使用消息中间件？

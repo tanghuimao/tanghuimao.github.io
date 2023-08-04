@@ -1,3 +1,15 @@
+---
+layout:     post
+title:      Spring MVC 
+subtitle:   表现层框架还是很好用啊！
+date:       2023-08-04
+author:     HM
+header-img: img/post-bg-coffee.jpeg
+catalog: true
+tags:
+    - Spring MVC
+---
+
 # Spring_MVC
 
 ## 1、Spring MVC 简介

@@ -1,3 +1,15 @@
+---
+layout:     post
+title:      Spring就看这一篇就好了
+subtitle:   Spring只是对IOC和AOP进行了实现哦！
+date:       2023-08-04
+author:     HM
+header-img: img/post-bg-coffee.jpeg
+catalog: true
+tags:
+    - Spring
+---
+
 # Spring
 
 ## 1、Spring概述

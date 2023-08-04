@@ -1,4 +1,15 @@
-#
+---
+layout:     post
+title:      网络编程-Socket
+subtitle:   回顾一下socket的魅力！
+date:       2023-08-04
+author:     HM
+header-img: img/post-bg-coffee.jpeg
+catalog: true
+tags:
+    - 网络编程
+    - Socket
+---
 
 ### [韩顺平聊JAVA网络](https://www.bilibili.com/video/BV1j54y1b7qv)
 

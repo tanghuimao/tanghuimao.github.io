@@ -1,3 +1,15 @@
+---
+layout:     post
+title:      Spring Boot
+subtitle:   约定优于配置！
+date:       2023-08-04
+author:     HM
+header-img: img/post-bg-coffee.jpeg
+catalog: true
+tags:
+    - Spring Boot
+---
+
 # SpringBoot
 
 ## 1、SpringBoot基础回顾

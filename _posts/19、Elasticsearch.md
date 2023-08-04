@@ -1,3 +1,16 @@
+---
+layout:     post
+title:      搜索菜谱的工具变成了这么强大的搜索引擎-Elasticsearch
+subtitle:   搜索是真的快，分词算法怎么这么强啊！
+date:       2023-08-04
+author:     HM
+header-img: img/post-bg-coffee.jpeg
+catalog: true
+tags:
+    - Elasticsearch
+    - 搜索引擎
+---
+
 # Elasticsearch7.x搜索实战
 
 **主要内容**
@@ -4609,6 +4622,7 @@ http.cors.allow-origin: "*"
   ```yaml
   node.name: node-2 # 节点名称  192.168.81.101
   node.name: node-3 # 节点名称  192.168.81.102
+  ```
 
 - 在192.168.81.101和192.168.81.102中创建estest用户并修改es目录
 

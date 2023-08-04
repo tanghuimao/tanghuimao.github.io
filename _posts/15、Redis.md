@@ -1,3 +1,16 @@
+---
+layout:     post
+title:      K-V存储redis 分布式缓存
+subtitle:   单线程的redis为什么这么快呢？
+date:       2023-08-04
+author:     HM
+header-img: img/post-bg-coffee.jpeg
+catalog: true
+tags:
+    - Redis
+    - Nosql
+---
+
 # Redis
 
 **生产中遇到的缓存问题（大厂常见面试题）**

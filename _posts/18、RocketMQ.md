@@ -1,3 +1,16 @@
+---
+layout:     post
+title:      火箭来啦-RocketMQ
+subtitle:   阿里出品-双11压测-你值得拥有！
+date:       2023-08-04
+author:     HM
+header-img: img/post-bg-coffee.jpeg
+catalog: true
+tags:
+    - RocketMQ
+    - 消息中间件
+---
+
 # RocketMQ
 
 **目标**

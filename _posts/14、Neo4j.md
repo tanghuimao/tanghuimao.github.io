@@ -1,3 +1,16 @@
+---
+layout:     post
+title:      图存储是个好东西-Neo4j  java编辑的数据库
+subtitle:   图不是一个好学的东西！
+date:       2023-08-04
+author:     HM
+header-img: img/post-bg-coffee.jpeg
+catalog: true
+tags:
+    - Neo4j
+    - NoSql
+---
+
 # 	Neo4j
 
 **主要课程内容**

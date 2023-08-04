@@ -1,3 +1,16 @@
+---
+layout:     post
+title:      高吞吐量的Kafka
+subtitle:   每秒可以处理2000W级别的数据哦！
+date:       2023-08-04
+author:     HM
+header-img: img/post-bg-coffee.jpeg
+catalog: true
+tags:
+    - Kafka
+    - 消息中间件
+---
+
 # Kafka
 
 ## 1、Kafka架构与实战
