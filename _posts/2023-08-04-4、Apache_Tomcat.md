@@ -32,9 +32,7 @@ http请求的处理过程
 
 **Tomcat是⼀个Http服务器（能够接收并且处理http请求，所以tomcat是⼀个http服务器）**
 
-我们使⽤浏览器向某⼀个⽹站发起请求，发出的是Http请求，那么在远程，Http服务器接收到这个请求之后，会调⽤具体的程序（Java类）进⾏处理，往往不同的
-
-请求由不同的Java类完成处理。
+我们使⽤浏览器向某⼀个⽹站发起请求，发出的是Http请求，那么在远程，Http服务器接收到这个请求之后，会调⽤具体的程序（Java类）进⾏处理，往往不同的请求由不同的Java类完成处理。
 
 ![](../img/tomcat/tomcat-img-3.png)
 
@@ -42,9 +40,7 @@ http请求的处理过程
 
 ![](../img/tomcat/tomcat-img-4.png)
 
-HTTP 服务器接收到请求之后把请求交给Servlet容器来处理，Servlet 容器通过Servlet接⼝调⽤业务类。**Servlet**接⼝和**Servlet**容器这⼀整套内容叫作**Servlet**规
-
-范。
+HTTP 服务器接收到请求之后把请求交给Servlet容器来处理，Servlet 容器通过Servlet接⼝调⽤业务类。**Servlet**接⼝和**Servlet**容器这⼀整套内容叫作**Servlet**规范。
 
 注意：Tomcat既按照Servlet规范的要求去实现了Servlet容器，同时它也具有HTTP服务器的功能。
 
@@ -96,9 +92,7 @@ Coyote 是Tomcat 中连接器的组件名称 , 是对外的接⼝。客户端通
 
 （2）Coyote 使Catalina 容器（容器组件）与具体的请求协议及IO操作⽅式完全解耦
 
-（3）Coyote 将Socket 输⼊转换封装为 Request 对象，进⼀步封装后交由Catalina 容器进⾏处理，处理请求完成后, Catalina 通过Coyote 提供的Response 对象
-
-将结果写⼊输出流
+（3）Coyote 将Socket 输⼊转换封装为 Request 对象，进⼀步封装后交由Catalina 容器进⾏处理，处理请求完成后, Catalina 通过Coyote 提供的Response 对象将结果写⼊输出流
 
 （4）Coyote 负责的是具体协议（应⽤层）和**IO**（传输层）相关内容
 
@@ -108,9 +102,7 @@ Tomcat⽀持多种应⽤层协议和I/O模型，如下：
 
 ![](../img/tomcat/tomcat-img-9.png)
 
-在 8.0 之前 ，Tomcat 默认采⽤的I/O⽅式为 BIO，之后改为 NIO。 ⽆论 NIO、NIO2 还是 APR， 在性能⽅⾯均优于以往的BIO。 如果采⽤APR， 甚⾄可以达到 
-
-Apache HTTP Server 的影响性能。
+在 8.0 之前 ，Tomcat 默认采⽤的I/O⽅式为 BIO，之后改为 NIO。 ⽆论 NIO、NIO2 还是 APR， 在性能⽅⾯均优于以往的BIO。 如果采⽤APR， 甚⾄可以达到 Apache HTTP Server 的影响性能。
 
 #### 2.4.2、Coyote的内部组件及流程
 
@@ -131,9 +123,7 @@ Coyote 组件及作⽤
 
 Tomcat是⼀个由⼀系列可配置**（conf/server.xml）**的组件构成的Web容器，⽽Catalina是Tomcat的servlet容器。
 
-从另⼀个⻆度来说，**Tomcat 本质上就是⼀款 Servlet 容器**， 因为 Catalina 才是 Tomcat 的核⼼ ， 其他模块都是为Catalina 提供⽀撑的。 ⽐如 ： 通过 Coyote
-
-模块提供链接通信，Jasper 模块提供 JSP 引擎，Naming 提供JNDI 服务，Juli 提供⽇志服务。
+从另⼀个⻆度来说，**Tomcat 本质上就是⼀款 Servlet 容器**， 因为 Catalina 才是 Tomcat 的核⼼ ， 其他模块都是为Catalina 提供⽀撑的。 ⽐如 ： 通过 Coyote模块提供链接通信，Jasper 模块提供 JSP 引擎，Naming 提供JNDI 服务，Juli 提供⽇志服务。
 
 ![](../img/tomcat/tomcat-img-11.png)
 
@@ -160,9 +150,7 @@ Tomcat/Catalina实例
 
 - Server
 
-  服务器表示整个Catalina Servlet容器以及其它组件，负责组装并启动Servlet引擎,Tomcat连接器。Server通过实现**Lifecycle**接⼝，提供了⼀种优雅的启动和
-
-  关闭整个系统的⽅式
+  服务器表示整个Catalina Servlet容器以及其它组件，负责组装并启动Servlet引擎,Tomcat连接器。Server通过实现**Lifecycle**接⼝，提供了⼀种优雅的启动和关闭整个系统的⽅式
 
 - Service
 
@@ -315,9 +303,7 @@ Container组件下有⼏种具体的组件，分别是Engine、Host、Context和
 
 Connector 标签⽤于创建链接器实例
 
-默认情况下，server.xml 配置了两个链接器，⼀个⽀持HTTP协议，⼀个⽀持AJP协议。⼤多数情况下，我们并不需要新增链接器配置，只是根据需要对已有链接器
-
-进⾏优化
+默认情况下，server.xml 配置了两个链接器，⼀个⽀持HTTP协议，⼀个⽀持AJP协议。⼤多数情况下，我们并不需要新增链接器配置，只是根据需要对已有链接器进⾏优化
 
 ```xml
 	<!--
@@ -416,9 +402,7 @@ Context标签是Host标签的子标签，⽤于配置⼀个Web应⽤，如下：
 
 名称：ThmCat
 
-ThmCat要做的事情：作为⼀个服务器软件提供服务的，也即我们可以通过浏览器客户端发送http请求，ThmCat可以接收到请求进⾏处理，处理之后的结果可以返
-
-回浏览器客户端。
+ThmCat要做的事情：作为⼀个服务器软件提供服务的，也即我们可以通过浏览器客户端发送http请求，ThmCat可以接收到请求进⾏处理，处理之后的结果可以返回浏览器客户端。
 
 1）提供服务，接收请求（Socket通信）
 
@@ -1182,15 +1166,11 @@ public class StaticResourceUtil {
 
   ![](../img/tomcat/tomcat-img-18.png)
 
-- 运⾏ Bootstrap 类的main函数，此时就启动了tomcat，启动时候会去加载所配置的 conf ⽬录下的server.xml等配置⽂件，所以访问8080端⼝即可，但此时
-
-  我们会遇到如下的⼀个错误
+- 运⾏ Bootstrap 类的main函数，此时就启动了tomcat，启动时候会去加载所配置的 conf ⽬录下的server.xml等配置⽂件，所以访问8080端⼝即可，但此时我们会遇到如下的⼀个错误
 
   ![](../img/tomcat/tomcat-img-19.png)
 
-  原因是Jsp引擎Jasper没有被初始化，从⽽⽆法编译JSP，我们需要在tomcat的源码ContextConfifig类中的confifigureStart⽅法中增加⼀⾏代码将 Jsp 引擎初始
-
-  化，如下
+  原因是Jsp引擎Jasper没有被初始化，从⽽⽆法编译JSP，我们需要在tomcat的源码ContextConfifig类中的confifigureStart⽅法中增加⼀⾏代码将 Jsp 引擎初始化，如下
 
   ![](../img/tomcat/tomcat-img-20.png)
 
@@ -1230,19 +1210,13 @@ Tomcat中的各容器组件都会涉及创建、销毁等，因此设计了⽣�
 
 ## 6、Tomcat 类加载机制剖析
 
-Java类（.java）—> 字节码⽂件(.class) —> 字节码⽂件需要被加载到jvm内存当中（这个过程就是⼀个类加载的过程）
-
-类加载器（ClassLoader，说⽩了也是⼀个类，jvm启动的时候先把类加载器读取到内存当中去，其他的类（⽐如各种jar中的字节码⽂件，⾃⼰开发的代码编译之
-
-后的.class⽂件等等））
+Java类（.java）—> 字节码⽂件(.class) —> 字节码⽂件需要被加载到jvm内存当中（这个过程就是⼀个类加载的过程）类加载器（ClassLoader，说⽩了也是⼀个类，jvm启动的时候先把类加载器读取到内存当中去，其他的类（⽐如各种jar中的字节码⽂件，⾃⼰开发的代码编译之后的.class⽂件等等））
 
 要说 Tomcat 的类加载机制，⾸先需要来看看 Jvm 的类加载机制，因为 Tomcat 类加载机制是在 Jvm 类加载机制基础之上进⾏了⼀些变动。
 
 ### 6.1、JVM 的类加载机制
 
-JVM 的类加载机制中有⼀个⾮常重要的⻆⾊叫做类加载器（ClassLoader），类加载器有⾃⼰的体系，Jvm内置了⼏种类加载器，包括：引导类加载器、扩展类加
-
-载器、系统类加载器，他们之间形成⽗⼦关系，通过 Parent 属性来定义这种关系，最终可以形成树形结构。
+JVM 的类加载机制中有⼀个⾮常重要的⻆⾊叫做类加载器（ClassLoader），类加载器有⾃⼰的体系，Jvm内置了⼏种类加载器，包括：引导类加载器、扩展类加载器、系统类加载器，他们之间形成⽗⼦关系，通过 Parent 属性来定义这种关系，最终可以形成树形结构。
 
 ![](../img/tomcat/tomcat-img-27.png)
 
@@ -1256,7 +1230,7 @@ JVM 的类加载机制中有⼀个⾮常重要的⻆⾊叫做类加载器（Clas
 　　	当 JVM 运⾏过程中，⽤户⾃定义了类加载器去加载某些类时，会按照下⾯的步骤（⽗类委托机制）
 　　	1） ⽤户⾃⼰的类加载器，把加载请求传给⽗加载器，⽗加载器再传给其⽗加载器，⼀直到加载器树的顶层
 　　	2 ）最顶层的类加载器⾸先针对其特定的位置加载，如果加载不到就转交给⼦类
-　　	3 ）如果⼀直到底层的类加载都没有加载到，那么就会抛出异常 ClassNotFoundException因此，按照这个过程可以想到，如果同样在 classpath 指定的⽬				   录中和⾃⼰⼯作⽬录中存放相同的class，会优先加载 classpath ⽬录中的⽂件
+　　	3 ）如果⼀直到底层的类加载都没有加载到，那么就会抛出异常 ClassNotFoundException因此，按照这个过程可以想到，如果同样在 classpath 指定的⽬录中和⾃⼰⼯作⽬录中存放相同的class，会优先加载 classpath ⽬录中的⽂件
 
 ### 6.2、双亲委派机制
 
@@ -1268,11 +1242,8 @@ JVM 的类加载机制中有⼀个⾮常重要的⻆⾊叫做类加载器（Clas
 
 - 防⽌重复加载同⼀个.class。通过委托去向上⾯问⼀问，加载过了，就不⽤再加载⼀遍。保证数据安全。
 
-- 保证核⼼.class不能被篡改。通过委托⽅式，不会去篡改核⼼.class，即使篡改也不会去加载，即使加载也不会是同⼀个.class对象了。不同的加载器加载同⼀
+- 保证核⼼.class不能被篡改。通过委托⽅式，不会去篡改核⼼.class，即使篡改也不会去加载，即使加载也不会是同⼀个.class对象了。不同的加载器加载同⼀个.class也不是同⼀个.class对象。这样保证了class执⾏安全（如果⼦类加载器先加载，那么我们可以写⼀些与java.lang包中基础类同名的类， 然后再定义⼀个⼦类加载器，这样整个应⽤使⽤的基础类就都变成我们⾃⼰定义的类了。）
 
-  个.class也不是同⼀个.class对象。这样保证了class执⾏安全（如果⼦类加载器先加载，那么我们可以写⼀些与java.lang包中基础类同名的类， 然后再定义⼀
-
-  个⼦类加载器，这样整个应⽤使⽤的基础类就都变成我们⾃⼰定义的类了。）
 
 ### 6.3、**Tomcat** 的类加载机制
 
@@ -1284,9 +1255,7 @@ Tomcat 的类加载机制相对于 Jvm 的类加载机制做了⼀些改变。
 
 - 引导类加载器 和 扩展类加载器 的作⽤不变
 
-- 系统类加载器正常情况下加载的是 CLASSPATH 下的类，但是 Tomcat 的启动脚本并未使⽤该变量，⽽是加载tomcat启动的类，⽐如bootstrap.jar，通常在
-
-  catalina.bat或者catalina.sh中指定。位于CATALINA_HOME/bin下
+- 系统类加载器正常情况下加载的是 CLASSPATH 下的类，但是 Tomcat 的启动脚本并未使⽤该变量，⽽是加载tomcat启动的类，⽐如bootstrap.jar，通常在catalina.bat或者catalina.sh中指定。位于CATALINA_HOME/bin下
 
 - Common 通⽤类加载器加载Tomcat使⽤以及应⽤通⽤的⼀些类，位于CATALINA_HOME/lib下，⽐如servlet-api.jar
 
@@ -1376,9 +1345,7 @@ TLS(transport layer security)协议
 
 1）响应时间：执⾏某个操作的耗时；
 
-2)  吞吐量：系统在给定时间内能够⽀持的事务数量，单位为TPS（Transactions PerSecond的缩写，也就是事务数/秒，⼀个事务是指⼀个客户机向服务器发送请
-
-求然后服务器做出反应的过程。
+2)  吞吐量：系统在给定时间内能够⽀持的事务数量，单位为TPS（Transactions PerSecond的缩写，也就是事务数/秒，⼀个事务是指⼀个客户机向服务器发送请求然后服务器做出反应的过程。
 
 Tomcat优化从两个⽅⾯进⾏
 
@@ -1503,15 +1470,11 @@ Tomcat⾃身相关的调优
 
 - 调整 IO 模式
 
-  Tomcat8之前的版本默认使⽤BIO（阻塞式IO），对于每⼀个请求都要创建⼀个线程来处理，不适合⾼并发；Tomcat8以后的版本默认使⽤NIO模式（⾮阻塞
-
-  式IO）
+  Tomcat8之前的版本默认使⽤BIO（阻塞式IO），对于每⼀个请求都要创建⼀个线程来处理，不适合⾼并发；Tomcat8以后的版本默认使⽤NIO模式（⾮阻塞式IO）
 
   ![](../img/tomcat/tomcat-img-36.png)
 
-  当Tomcat并发性能有较⾼要求或者出现瓶颈时，我们可以尝试使⽤APR模式，APR（Apache PortableRuntime）是从操作系统级别解决异步IO问题，使⽤时
-
-  需要在操作系统上安装APR和Native（因为APR原理是使⽤JNI技术调⽤操作系统底层的IO接⼝）
+  当Tomcat并发性能有较⾼要求或者出现瓶颈时，我们可以尝试使⽤APR模式，APR（Apache PortableRuntime）是从操作系统级别解决异步IO问题，使⽤时需要在操作系统上安装APR和Native（因为APR原理是使⽤JNI技术调⽤操作系统底层的IO接⼝）
 
 - 动静分离
 

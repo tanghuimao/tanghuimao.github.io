@@ -12,17 +12,13 @@ tags:
 
 # Spring Data JPA
 
-Spring Data Jpa 是应⽤于Dao层的⼀个框架，简化数据库开发的，作⽤和Mybatis框架⼀样，但是在使⽤⽅式和底层机制是有所不同的。最明显的⼀个特点，
-
-Spring Data Jpa 开发Dao的时候，很多场景我们连sql语句都不需要开发。由Spring出品。
+Spring Data Jpa 是应⽤于Dao层的⼀个框架，简化数据库开发的，作⽤和Mybatis框架⼀样，但是在使⽤⽅式和底层机制是有所不同的。最明显的⼀个特点，Spring Data Jpa 开发Dao的时候，很多场景我们连sql语句都不需要开发。由Spring出品。
 
 ## 1、Spring Data JPA 概述
 
 - ### 什么是 Spring Data JPA
 
-  Spring Data JPA 是 Spring 基于**JPA** 规范的基础上封装的⼀套 JPA 应⽤框架，可使开发者⽤极简的代码即可实现对数据库的访问和操作。它提供了包括增删改
-
-  查等在内的常⽤功能！学习并使⽤Spring Data JPA 可以极⼤提⾼开发效率。Spring Data JPA 极⼤简化了数据访问层代码。
+  Spring Data JPA 是 Spring 基于**JPA** 规范的基础上封装的⼀套 JPA 应⽤框架，可使开发者⽤极简的代码即可实现对数据库的访问和操作。它提供了包括增删改查等在内的常⽤功能！学习并使⽤Spring Data JPA 可以极⼤提⾼开发效率。Spring Data JPA 极⼤简化了数据访问层代码。
 
   如何简化呢？使⽤了Spring Data JPA，我们Dao层中只需要写接⼝，不需要写实现类，就⾃动具有了增删改查、分⻚查询等⽅法。
 
@@ -30,15 +26,11 @@ Spring Data Jpa 开发Dao的时候，很多场景我们连sql语句都不需要�
 
 ## 2、 Spring Data JPA，JPA规范和Hibernate之间的关系
 
-Spring Data JPA 是 Spring 提供的⼀个封装了JPA 操作的框架，⽽ JPA 仅仅是规范，单独使⽤规范⽆法具体做什么，那么Spring Data JPA 、 JPA规范 以及
-
-Hibernate （JPA 规范的⼀种实现）之间的关系是什么？
+Spring Data JPA 是 Spring 提供的⼀个封装了JPA 操作的框架，⽽ JPA 仅仅是规范，单独使⽤规范⽆法具体做什么，那么Spring Data JPA 、 JPA规范 以及Hibernate （JPA 规范的⼀种实现）之间的关系是什么？
 
 ![](../img/spring-data-jpa/spring-data-jpa-img-1.png)
 
-JPA 是⼀套规范，内部是由接⼝和抽象类组成的，Hiberanate 是⼀套成熟的 ORM 框架，⽽且Hiberanate 实现了 JPA 规范，所以可以称 Hiberanate 为 JPA 的⼀
-
-种实现⽅式，我们使⽤ JPA 的 API 编程，意味着站在更⾼的⻆度去看待问题（⾯向接⼝编程）。
+JPA 是⼀套规范，内部是由接⼝和抽象类组成的，Hiberanate 是⼀套成熟的 ORM 框架，⽽且Hiberanate 实现了 JPA 规范，所以可以称 Hiberanate 为 JPA 的⼀种实现⽅式，我们使⽤ JPA 的 API 编程，意味着站在更⾼的⻆度去看待问题（⾯向接⼝编程）。
 
 Spring Data JPA 是 Spring 提供的⼀套对 JPA 操作更加⾼级的封装，是在 JPA 规范下的专⻔⽤来进⾏数据持久化的解决⽅案。
 
