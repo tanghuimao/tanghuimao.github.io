@@ -73,7 +73,7 @@ Elasticsearch 是一个分布式的 开源搜索和分析引擎
 
   索机制剖析
 
-   Filter过滤机制剖析 
+  Filter过滤机制剖析 
 
   控制搜索精准度
 
@@ -85,19 +85,13 @@ Elasticsearch 是一个分布式的 开源搜索和分析引擎
 
 ### 1.1、Elasticsearch是什么
 
-Elaticsearch简称为ES,是一个开源的可扩展的分布式的**全文检索引擎**，它可以近乎实时的存储、检索数据。本身扩展性很好，可扩展到上百台服务器，处理**PB**级别
-
-的数据。ES使用Java开发并使用Lucene作为其核心来实现索引和搜索的功能，但是它通过简单的**RestfulAPI**和**javaAPI**来隐藏Lucene的复杂性，从而让全文搜索
-
-变得简单。
+Elaticsearch简称为ES,是一个开源的可扩展的分布式的**全文检索引擎**，它可以近乎实时的存储、检索数据。本身扩展性很好，可扩展到上百台服务器，处理**PB**级别的数据。ES使用Java开发并使用Lucene作为其核心来实现索引和搜索的功能，但是它通过简单的**RestfulAPI**和**javaAPI**来隐藏Lucene的复杂性，从而让全文搜索变得简单。
 
 > Elasticsearch官网：https://www.elastic.co/cn/products/elasticsearch
 
 ![](../img/Elasticsearch/Elasticsearch-img-1.png)
 
-起源：Shay Banon。2004年失业，陪老婆去伦敦学习厨师。失业在家帮老婆写一个菜谱搜索引擎。封装了lucene,做出了开源项目compass。找到工作后，做分
-
-布式高性能项目，再封装compass，写出了elasticsearch，使得lucene支持分布式。现在是Elasticsearch创始人兼Elastic首席执行官。
+起源：Shay Banon。2004年失业，陪老婆去伦敦学习厨师。失业在家帮老婆写一个菜谱搜索引擎。封装了lucene,做出了开源项目compass。找到工作后，做分布式高性能项目，再封装compass，写出了elasticsearch，使得lucene支持分布式。现在是Elasticsearch创始人兼Elastic首席执行官。
 
 ### 1.2、Elasticsearch的功能
 
@@ -117,17 +111,13 @@ Elaticsearch简称为ES,是一个开源的可扩展的分布式的**全文检索
 
 - 对海量数据进行近实时的处理
 
-  海量数据的处理：因为是分布式架构，Elasticsearch可以采用大量的服务器去存储和检索数据，自然而然就可以实现海量数据的处理
+  海量数据的处理：因为是分布式架构，Elasticsearch可以采用大量的服务器去存储和检索数据，自然而然就可以实现海量数据的处理近实时：Elasticsearch可以实现秒级别的数据搜索和分析
 
-  近实时：Elasticsearch可以实现秒级别的数据搜索和分析
 
 ### 1.3、Elasticsearch的特点
 
-> Elasticsearch的特点是它提供了一个极速的搜索体验。这源于它的高速（**speed**）。相比较其它的一些大数据引擎，Elasticsearch可以实现秒级的搜索，速度
+> Elasticsearch的特点是它提供了一个极速的搜索体验。这源于它的高速（**speed**）。相比较其它的一些大数据引擎，Elasticsearch可以实现秒级的搜索，速度非常有优势。Elasticsearch的cluster是一种分布式的部署，极易扩展(**scale** )这样很容易使它处理PB级的数据库容量。最重要的是Elasticsearch是它搜索的结果可以按照分数进行排序，它能提供我们最相关的搜索结果（**relevance**) 。
 >
-> 非常有优势。Elasticsearch的cluster是一种分布式的部署，极易扩展(**scale** )这样很容易使它处理PB级的数据库容量。最重要的是Elasticsearch是它搜索的结
->
-> 果可以按照分数进行排序，它能提供我们最相关的搜索结果（**relevance**) 。
 
 ![](../img/Elasticsearch/Elasticsearch-img-2.png)
 
@@ -144,25 +134,21 @@ Elaticsearch简称为ES,是一个开源的可扩展的分布式的**全文检索
 
   1. 搜索类场景
 
-    比如说电商网站、招聘网站、新闻资讯类网站、各种app内的搜索。
+     比如说电商网站、招聘网站、新闻资讯类网站、各种app内的搜索。
 
   2. 日志分析类场景
 
-    经典的ELK组合（Elasticsearch/Logstash/Kibana），可以完成日志收集，日志存储，日志分析查询界面基本功能，目前该方案的实现很普及，大部分企
-
-    业日志分析系统使用了该方案。
+     经典的ELK组合（Elasticsearch/Logstash/Kibana），可以完成日志收集，日志存储，日志分析查询界面基本功能，目前该方案的实现很普及，大部分企业日志分析系统使用了该方案。
 
   3. 数据预警平台及数据分析场景
 
-    例如电商价格预警，在支持的电商平台设置价格预警，当优惠的价格低于某个值时，触发通知消息，通知用户购买。
+     例如电商价格预警，在支持的电商平台设置价格预警，当优惠的价格低于某个值时，触发通知消息，通知用户购买。
 
-    数据分析常见的比如分析电商平台销售量top 10的品牌，分析博客系统、头条网站top 10关注度、评论数、访问量的内容等等。
+     数据分析常见的比如分析电商平台销售量top 10的品牌，分析博客系统、头条网站top 10关注度、评论数、访问量的内容等等。
 
   4. 商业BI(Business Intelligence)系统
 
-    比如大型零售超市，需要分析上一季度用户消费金额，年龄段，每天各时间段到店人数分布等信息，输出相应的报表数据，并预测下一季度的热卖商品，
-
-    根据年龄段定向推荐适宜产品。
+     比如大型零售超市，需要分析上一季度用户消费金额，年龄段，每天各时间段到店人数分布等信息，输出相应的报表数据，并预测下一季度的热卖商品，根据年龄段定向推荐适宜产品。
 
     Elasticsearch执行数据分析和挖掘，Kibana做数据可视化。
 
@@ -178,23 +164,17 @@ Lucene、Solr、Elasticsearch是目前主流的全文搜索方案，基于**倒�
 
 - **Lucene**
 
-  Lucene是Apache基金会维护的一套完全使用Java编写的信息搜索工具包（Jar包），它包含了索引结构、读写索引工具、相关性工具、排序等功能，因此在使
-
-  用Lucene时仍需要我们自己进一步开发搜索引擎系统，例如数据获取、解析、分词等方面的东西。
+  Lucene是Apache基金会维护的一套完全使用Java编写的信息搜索工具包（Jar包），它包含了索引结构、读写索引工具、相关性工具、排序等功能，因此在使用Lucene时仍需要我们自己进一步开发搜索引擎系统，例如数据获取、解析、分词等方面的东西。
 
   注意：Lucene只是一个框架，我们需要在Java程序中集成它再使用。而且需要很多的学习才能明白它是如何运行的，熟练运用Lucene非常复杂。
 
 - **Solr**
 
-  Solr是一个有HTTP接口的基于Lucene的查询服务器，是一个搜索引擎系统，封装了很多Lucene细节，Solr可以直接利用HTTP GET/POST请求去查询，维护修
-
-  改索引。
+  Solr是一个有HTTP接口的基于Lucene的查询服务器，是一个搜索引擎系统，封装了很多Lucene细节，Solr可以直接利用HTTP GET/POST请求去查询，维护修改索引。
 
 - **Elasticsearch**
 
-  Elasticsearch也是一个建立在全文搜索引擎 Apache Lucene基础上的搜索引擎。采用的策略是分布式实时文件存储，并将每一个字段都编入索引，使其可以被
-
-  搜索。
+  Elasticsearch也是一个建立在全文搜索引擎 Apache Lucene基础上的搜索引擎。采用的策略是分布式实时文件存储，并将每一个字段都编入索引，使其可以被搜索。
 
 - 三者之间的区别和联系
 
@@ -216,15 +196,11 @@ Lucene、Solr、Elasticsearch是目前主流的全文搜索方案，基于**倒�
   >
   > 1. 集群连接变化：TransportClient被废弃
   >
-  >    以至于，es7的java代码，只能使用restclient。对于java编程，建议采用 High-level-rest- client 的方式操作ES集群。High-level REST client 已删除接
-  >
-  >    受Header参数的API方 法,Cluster Health API默认为集群级别。 
+  >    以至于，es7的java代码，只能使用restclient。对于java编程，建议采用 High-level-rest- client 的方式操作ES集群。High-level REST client 已删除接受Header参数的API方 法,Cluster Health API默认为集群级别。 
   >
   > 2. ES数据存储结构变化：简化了Type 默认使用_doc
   >
-  >    es6时，官方就提到了es7会逐渐删除索引type，并且es6时已经规定每一个index只能有一个 type。在es7中使用默认的doc作为type，官方说在8.x
-  >
-  >    版本会彻底移除type。 api请求方式也发送变化，如获得某索引的某ID的文档：GET index/_doc/id其中index和id为具 体的值
+  >    es6时，官方就提到了es7会逐渐删除索引type，并且es6时已经规定每一个index只能有一个 type。在es7中使用默认的doc作为type，官方说在8.x版本会彻底移除type。 api请求方式也发送变化，如获得某索引的某ID的文档：GET index/_doc/id其中index和id为具 体的值
   >
   > 3. ES程序包默认打包jdk：以至于7.x版本的程序包大小突然增大了200MB+, 对比6.x发现，包大了200MB+， 正是JDK的大小
   >
@@ -238,9 +214,7 @@ Lucene、Solr、Elasticsearch是目前主流的全文搜索方案，基于**倒�
   >
   >    TOP N的时候会跳过得分低于10000的文档来达到更快的性能。
   >
-  > 6.  间隔查询(Intervals queries)： intervals query 允许用户精确控制查询词在文档中出现的先后关系，实现了对terms顺序、terms之间的距离以及它
-  >
-  >    们之间的包含关系的灵活控制。
+  > 6. 间隔查询(Intervals queries)： intervals query 允许用户精确控制查询词在文档中出现的先后关系，实现了对terms顺序、terms之间的距离以及它们之间的包含关系的灵活控制。
   >
   > 7. 引入新的集群协调子系统 移除 minimum_master_nodes 参数，让 Elasticsearch 自己选择可以形成仲裁的节点。
   >
@@ -250,10 +224,9 @@ Lucene、Solr、Elasticsearch是目前主流的全文搜索方案，基于**倒�
   >
   > 9. 分片搜索空闲时跳过refresh
   >
-  >    以前版本的数据插入，每一秒都会有refresh动作，这使得es能成为一个近实时的搜索引擎。但是当没有查询需求的时候，该动作会使得es的资源得
+  >    以前版本的数据插入，每一秒都会有refresh动作，这使得es能成为一个近实时的搜索引擎。但是当没有查询需求的时候，该动作会使得es的资源得到较大的浪费。
   >
-  >    到较大的浪费。
-
+  
 - **Elasticsearch与其他软件兼容**
 
   操作系统：https://www.elastic.co/cn/support/matrix#matrix_os
@@ -262,9 +235,7 @@ Lucene、Solr、Elasticsearch是目前主流的全文搜索方案，基于**倒�
 
 ### 1.7、Elasticseach Single-Node Mode快速部署
 
-Elasticsearch是一个分布式全文搜索引擎，支持单节点模式(Single-Node Mode)和集群模式(ClusterMode)部署，一般来说，小公司的业务场景往往使用Single-
-
-Node Mode部署即可。课程中我们先以Single-Node Mode部署实例学习，随后再专门讲授集群模式相关内容。
+Elasticsearch是一个分布式全文搜索引擎，支持单节点模式(Single-Node Mode)和集群模式(ClusterMode)部署，一般来说，小公司的业务场景往往使用Single-Node Mode部署即可。课程中我们先以Single-Node Mode部署实例学习，随后再专门讲授集群模式相关内容。
 
 - **环境准备**
 
@@ -333,51 +304,49 @@ Node Mode部署即可。课程中我们先以Single-Node Mode部署实例学习�
     vim /usr/elasticsearch/config/jvm.options
     ```
 
-    根据实际情况修改占用内存，默认都是1G，单机1G内存，启动会占用700m+然后在安装kibana后，基本上无法运行了，运行了一会就挂了报内存不足。 
-
-    内存设置超出物理内存，也会无法启动，启动报错。
+    根据实际情况修改占用内存，默认都是1G，单机1G内存，启动会占用700m+然后在安装kibana后，基本上无法运行了，运行了一会就挂了报内存不足。 内存设置超出物理内存，也会无法启动，启动报错。
 
     ```apl
-    -Xms1g 
+-Xms1g 
     -Xmx1g
     ```
-
+    
   - 添加es用户，es默认root用户无法启动，需要改为其他用户
 
     ```apl
-    #新增用户
+  #新增用户
     useradd estest 
     #修改密码 
     passwd estest
     ```
-
+  
     改变es目录拥有者账号
 
     ```apl
-    chown -R estest /usr/elasticsearch/
+  chown -R estest /usr/elasticsearch/
     ```
-
+  
   - 修改/etc/sysctl.conf
 
     ```apl
-    vim /etc/sysctl.conf
+  vim /etc/sysctl.conf
     #末尾添加：
     vm.max_map_count=655360
     #执行sysctl -p 让其生效
     sysctl -p
     ```
-
+  
   - 修改/etc/security/limits.conf
 
     ```apl
-    vim /etc/security/limits.conf
+  vim /etc/security/limits.conf
     #末尾添加：
     *                soft    nofile          65536
     *                hard    nofile          65536
     *                soft    nproc           4096
     *                hard    nproc           4096
     ```
-
+  
 - 启动es
 
   ```apl
@@ -445,9 +414,7 @@ ElasticSearch没有自带图形化界面，我们可以通过安装ElasticSearch
 
 - 什么是Kibana
 
-  Kibana是一个基于Node.js的Elasticsearch索引库数据统计工具，可以利用Elasticsearch的聚合功能，生成各种图表，如柱形图，线状图，饼图等。
-
-  而且还提供了操作Elasticsearch索引数据的控制台，并且提供了一定的API提示，非常有利于我们学习Elasticsearch的语法。
+  Kibana是一个基于Node.js的Elasticsearch索引库数据统计工具，可以利用Elasticsearch的聚合功能，生成各种图表，如柱形图，线状图，饼图等。而且还提供了操作Elasticsearch索引数据的控制台，并且提供了一定的API提示，非常有利于我们学习Elasticsearch的语法。
 
 - 安装Kibana
 
@@ -488,19 +455,13 @@ ElasticSearch没有自带图形化界面，我们可以通过安装ElasticSearch
 
 #### 2.4.1、集成IK分词器
 
-IKAnalyzer是一个开源的，基于java语言开发的轻量级的中文分词工具包。从2006年12月推出1.0版开始，IKAnalyzer已经推出 了3个大版本。最初，它是以开源
-
-项目Lucene为应用主体的，结合词典分词和文法分析算法的中文分词组件。新版本的IKAnalyzer3.0则发展为 面向Java的公用分词组件，独立于Lucene项目，同时
-
-提供了对Lucene的默认优化实现。
+IKAnalyzer是一个开源的，基于java语言开发的轻量级的中文分词工具包。从2006年12月推出1.0版开始，IKAnalyzer已经推出 了3个大版本。最初，它是以开源项目Lucene为应用主体的，结合词典分词和文法分析算法的中文分词组件。新版本的IKAnalyzer3.0则发展为 面向Java的公用分词组件，独立于Lucene项目，同时提供了对Lucene的默认优化实现。
 
 IK分词器3.0的特性如下：
 
 - 采用了特有的“正向迭代最细粒度切分算法“，具有60万字/秒的高速处理能力。
 
-- 采用了多子处理器分析模式，支持：英文字母（IP地址、Email、URL）、数字（日期，常用中文数量词，罗马数字，科学计数法），中文词汇（姓名、地名处
-
-  理）等分词处理。
+- 采用了多子处理器分析模式，支持：英文字母（IP地址、Email、URL）、数字（日期，常用中文数量词，罗马数字，科学计数法），中文词汇（姓名、地名处理）等分词处理。
 
 - 支持个人词条的优化的词典存储，更小的内存占用。
 
@@ -739,17 +700,13 @@ IK分词器有两种分词模式：ik_max_word和ik_smart模式。
 
 #### 2.4.4、同义词典使用
 
-语言博大精深，有很多相同意思的词，我们称之为同义词，比如“番茄”和“西红柿”，“馒头”和“馍”等。在搜索的时候，我们输入的可能是“番茄”，但是应该把含有“西
-
-红柿”的数据一起查询出来，这种情况叫做同义词查询。
+语言博大精深，有很多相同意思的词，我们称之为同义词，比如“番茄”和“西红柿”，“馒头”和“馍”等。在搜索的时候，我们输入的可能是“番茄”，但是应该把含有“西红柿”的数据一起查询出来，这种情况叫做同义词查询。
 
 注意：扩展词和停用词是在索引的时候使用，而同义词是检索时候使用。
 
 **配置IK同义词**
 
-Elasticsearch 自带一个名为 synonym 的同义词 filter。为了能让 IK 和 synonym 同时工作，我们需要定义新的 analyzer，用 IK 做 tokenizer，synonym 做 
-
-filter。听上去很复杂，实际上要做的只是加一段配置。
+Elasticsearch 自带一个名为 synonym 的同义词 filter。为了能让 IK 和 synonym 同时工作，我们需要定义新的 analyzer，用 IK 做 tokenizer，synonym 做 filter。听上去很复杂，实际上要做的只是加一段配置。
 
 - 创建/config/analysis-ik/synonym.txt 文件，输入一些同义词并存为 utf-8 格式。例如
 
@@ -799,9 +756,7 @@ filter。听上去很复杂，实际上要做的只是加一段配置。
   }
   ```
 
-  以上配置定义了ik_sync_max_word和ik_sync_smart这两个新的 analyzer，对应 IK 的 ik_max_word 和ik_smart 两种分词策略。ik_sync_max_word和 
-
-  ik_sync_smart都会使用 synonym fifilter 实现同义词转换
+  以上配置定义了ik_sync_max_word和ik_sync_smart这两个新的 analyzer，对应 IK 的 ik_max_word 和ik_smart 两种分词策略。ik_sync_max_word和 ik_sync_smart都会使用 synonym fifilter 实现同义词转换
 
 - 到此，索引创建模板中同义词配置完成，搜索时指定分词为ik_sync_max_word或ik_sync_smart。
 
@@ -991,9 +946,7 @@ Get请求可以帮我们查看索引的相关属性信息，格式：
 
 ### 2.6、映射操作
 
-索引创建之后，等于有了关系型数据库中的database。Elasticsearch7.x取消了索引type类型的设置，不允许指定类型，默认为_doc，但字段仍然是有的，我们需
-
-要设置字段的约束信息，叫做字段映射（mapping）
+索引创建之后，等于有了关系型数据库中的database。Elasticsearch7.x取消了索引type类型的设置，不允许指定类型，默认为_doc，但字段仍然是有的，我们需要设置字段的约束信息，叫做字段映射（mapping）
 
 字段的约束包括但不限于：
 
@@ -1132,11 +1085,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/7.3/mapping-params.html
 
   是否将数据进行独立存储。
 
-  原始的文本会存储在 `_source` 里面，默认情况下其他提取出来的字段都不是独立存储的，是从`_source` 里面提取出来的。当然你也可以独立的存储某个字
-
-  段，只要设置store:true即可，获取独立存储的字段要比从_source中解析快得多，但是也会占用更多的空间，所以要根据实际业务需求来设置，默认为
-
-  false。 
+  原始的文本会存储在 `_source` 里面，默认情况下其他提取出来的字段都不是独立存储的，是从`_source` 里面提取出来的。当然你也可以独立的存储某个字段，只要设置store:true即可，获取独立存储的字段要比从_source中解析快得多，但是也会占用更多的空间，所以要根据实际业务需求来设置，默认为false。 
 
 - **analyzer：指定分词器**
 
@@ -1279,9 +1228,8 @@ PUT /lagou-employee-index
 
     ![](../img/Elasticsearch/Elasticsearch-img-18.png)
 
-    可以看到结果显示为： created ，代表创建成功。另外，需要注意的是，在响应结果中有个 _id 字段，这个就是这条文档数据的 唯一标识 ，以后的
+    可以看到结果显示为： created ，代表创建成功。另外，需要注意的是，在响应结果中有个 `_id `字段，这个就是这条文档数据的 唯一标识 ，以后的增删改查都依赖这个`_id`作为唯一标示，这里是Elasticsearch帮我们随机生成的id。
 
-    增删改查都依赖这个_id作为唯一标示，这里是Elasticsearch帮我们随机生成的id。
 
 #### 2.7.2、查看单个文档
 
@@ -1366,9 +1314,7 @@ GET /lagou-company-index/_doc/1?_source=name,job
 
 Elasticsearch可以使用PUT或者POST对文档进行更新(全部更新)，如果指定ID的文档已经存在，则执行更新操作。
 
-**注意：**Elasticsearch执行更新操作的时候，Elasticsearch首先将旧的文档标记为删除状态，然后添加新的文档，旧的文档不会立即消失，但是你也无法访问，
-
-Elasticsearch会在你继续添加更多数据的时候在后台清理已经标记为删除状态的文档。
+**注意：**Elasticsearch执行更新操作的时候，Elasticsearch首先将旧的文档标记为删除状态，然后添加新的文档，旧的文档不会立即消失，但是你也无法访问，Elasticsearch会在你继续添加更多数据的时候在后台清理已经标记为删除状态的文档。
 
 全部更新，是直接把之前的老数据，标记为删除状态，然后，再添加一条更新的（使用PUT或者POST）
 
@@ -1476,9 +1422,7 @@ Elasticsearch会在你继续添加更多数据的时候在后台清理已经标�
 
   - 语法与创建文档是一样的，如果文档id不存在，那么就是创建；如果文档id已经存在，那么就是全量替换操作，替换文档的json串内容；
 
-  - 文档是不可变的，如果要修改文档的内容，第一种方式就是全量替换，直接对文档重新建立索引，替换里面所有的内容，elasticsearch会将老的文档标记
-
-    为deleted，然后新增我们给定的一个文档，当我们创建越来越多的文档的时候，elasticsearch会在适当的时机在后台自动删除标记为deleted的文档
+  - 文档是不可变的，如果要修改文档的内容，第一种方式就是全量替换，直接对文档重新建立索引，替换里面所有的内容，elasticsearch会将老的文档标记为deleted，然后新增我们给定的一个文档，当我们创建越来越多的文档的时候，elasticsearch会在适当的时机在后台自动删除标记为deleted的文档
 
 - 强制创建
 
@@ -1498,14 +1442,12 @@ Elasticsearch会在你继续添加更多数据的时候在后台清理已经标�
 
 - 地理坐标点
 
-  地理坐标点是指地球表面可以用经纬度描述的一个点。 地理坐标点可以用来计算两个坐标间的距离，还可以判断一个坐标是否在一个区域中。地理坐标点需要
-
-  显式声明对应字段类型为 geo_point ：
+  地理坐标点是指地球表面可以用经纬度描述的一个点。 地理坐标点可以用来计算两个坐标间的距离，还可以判断一个坐标是否在一个区域中。地理坐标点需要显式声明对应字段类型为 geo_point ：
 
   - 示例
 
     ```json
-    PUT /company-locations 
+  PUT /company-locations 
     { 
         "mappings": { 
             "properties": {
@@ -1519,7 +1461,7 @@ Elasticsearch会在你继续添加更多数据的时候在后台清理已经标�
         } 
     }
     ```
-
+  
 - 经纬度坐标格式
 
   如上例，` location` 字段被声明为` geo_point` 后，我们就可以索引包含了经纬度信息的文档了。 经纬度信息的形式可以是字符串、数组或者对象
@@ -1569,16 +1511,12 @@ Elasticsearch会在你继续添加更多数据的时候在后台清理已经标�
 
 - geo_bounding_box查询
 
-  这是目前为止最有效的地理坐标过滤器了，因为它计算起来非常简单。 你指定一个矩形的顶部 ,底部 , 左边界和右边界，然后过滤器只需判断坐标的经度是否
-
-  在左右边界之间，纬度是否在上下边界之间
-
-  然后可以使用 geo_bounding_box 过滤器执行以下查询
+  这是目前为止最有效的地理坐标过滤器了，因为它计算起来非常简单。 你指定一个矩形的顶部 ,底部 , 左边界和右边界，然后过滤器只需判断坐标的经度是否在左右边界之间，纬度是否在上下边界之间，然后可以使用 geo_bounding_box 过滤器执行以下查询
 
   ```json
-  GET /company-locations/_search
+GET /company-locations/_search
   {
-  	"query": {
+	"query": {
   		"bool": {
   			"must": {
   				"match_all": {}
@@ -1601,17 +1539,15 @@ Elasticsearch会在你继续添加更多数据的时候在后台清理已经标�
   	}
   }
   ```
-
+  
    location这些坐标也可以用 bottom_left 和 top_right 来表示
-
+  
 - geo_distance
 
-  过滤仅包含与地理位置相距特定距离内的匹配的文档。假设以下映射和索引文档
-
-  然后可以使用 `geo_distance` 过滤器执行以下查询
+  过滤仅包含与地理位置相距特定距离内的匹配的文档。假设以下映射和索引文档，然后可以使用 `geo_distance` 过滤器执行以下查询
 
   ```json
-  GET /company-locations/_search
+GET /company-locations/_search
   {
   	"query": {
   		"bool": {
@@ -1699,9 +1635,7 @@ PUT /user
 
 #### 3.1.3、自定义动态映射
 
-如果你想在运行时增加新的字段，你可能会启用动态映射。 然而，有时候，动态映射规则可能不太智能。幸运的是，我们可以通过设置去自定义这些规则，以便
-
-更好的适用于你的数据。
+如果你想在运行时增加新的字段，你可能会启用动态映射。 然而，有时候，动态映射规则可能不太智能。幸运的是，我们可以通过设置去自定义这些规则，以便更好的适用于你的数据。
 
 - **日期检测**
 
@@ -1747,9 +1681,7 @@ PUT /user
 
 - **dynamic_templates**
 
-  使用 dynamic_templates 可以完全控制新生成字段的映射，甚至可以通过字段名称或数据类型来应用不同的映射。每个模板都有一个名称，你可以用来描述
-
-  这个模板的用途，一个 mapping 来指定映射应该怎样使用，以及至少一个参数 (如 match) 来定义这个模板适用于哪个字段。
+  使用 dynamic_templates 可以完全控制新生成字段的映射，甚至可以通过字段名称或数据类型来应用不同的映射。每个模板都有一个名称，你可以用来描述这个模板的用途，一个 mapping 来指定映射应该怎样使用，以及至少一个参数 (如 match) 来定义这个模板适用于哪个字段。
 
   模板按照顺序来检测；第一个匹配的模板会被启用。例如，我们给 string 类型字段定义两个模板：
 
@@ -1760,7 +1692,7 @@ PUT /user
   我们将 es 模板放在第一位，因为它比匹配所有字符串字段的 en 模板更特殊：
 
   ```json
-  PUT /my_index2
+PUT /my_index2
   {
   	"mappings": {
   		"dynamic_templates": [{
@@ -1791,16 +1723,16 @@ PUT /user
       "name":"es" 
   }
   ```
-
+  
   - 匹配字段名以 _es 结尾的字段
-  - 匹配其他所有字符串类型字段
-
+- 匹配其他所有字符串类型字段
+  
   match_mapping_type 允许你应用模板到特定类型的字段上，就像有标准动态映射规则检测的一样 (例 如 string 或 long)
 
   match参数只匹配字段名称，path_match 参数匹配字段在对象上的完整路径，所以 address.*.name将匹配这样的字段
 
   ```json
-  { 
+{ 
       "address": { 
           "city": { 
               "name": "New York" 
@@ -1813,9 +1745,7 @@ PUT /user
 
 https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl.html
 
-Elasticsearch提供了基于JSON的完整查询DSL（Domain Specifific Language 特定域的语言）来定义查询。将查询DSL视为查询的AST（抽象语法树），它由两种
-
-子句组成：
+Elasticsearch提供了基于JSON的完整查询DSL（Domain Specifific Language 特定域的语言）来定义查询。将查询DSL视为查询的AST（抽象语法树），它由两种子句组成：
 
 - 叶子查询子句
 
@@ -1825,9 +1755,7 @@ Elasticsearch提供了基于JSON的完整查询DSL（Domain Specifific Language 
 
   复合查询子句包装其他叶子查询或复合查询，并用于以逻辑方式组合多个查询（例如 bool或dis_max查询），或更改其行为（例如 constant_score查询）。
 
-我们在使用ElasticSearch的时候，避免不了使用DSL语句去查询，就像使用关系型数据库的时候要学会SQL语法一样。如果我们学习好了DSL语法的使用，那么在
-
-日后使用和使用Java Client调用时候也会变得非常简单。
+我们在使用ElasticSearch的时候，避免不了使用DSL语句去查询，就像使用关系型数据库的时候要学会SQL语法一样。如果我们学习好了DSL语法的使用，那么在日后使用和使用Java Client调用时候也会变得非常简单。
 
 **基本语法**
 
@@ -1880,15 +1808,11 @@ POST /索引库名/_search
 
 #### 3.2.2、全文搜索(full-text query)
 
-全文搜索能够搜索已分析的文本字段，如电子邮件正文，商品描述等。使用索引期间应用于字段的同一分析器处理查询字符串。
-
-全文搜索的分类很多几个典型的如下:
+全文搜索能够搜索已分析的文本字段，如电子邮件正文，商品描述等。使用索引期间应用于字段的同一分析器处理查询字符串。全文搜索的分类很多几个典型的如下:
 
 ##### 3.2.2.1、匹配搜索(match query)
 
-全文查询的标准查询，它可以对一个字段进行模糊、短语查询。 match queries 接收text/numerics/dates, 对它们进行分词分析, 再组织成一个boolean查询。可
-
-通过operator 指定bool组合操作（or、and 默认是 or ）。
+全文查询的标准查询，它可以对一个字段进行模糊、短语查询。 match queries 接收text/numerics/dates, 对它们进行分词分析, 再组织成一个boolean查询。可通过operator 指定bool组合操作（or、and 默认是 or ）。
 
 现在，索引库中有2部手机，1台电视; 
 
@@ -2107,9 +2031,7 @@ GET /lagou-property/_search
 
 #### 3.2.3、词条级搜索(term-level queries)
 
-可以使用**term-level queries**根据结构化数据中的精确值查找文档。结构化数据的值包括日期范围、IP地址、价格或产品ID。
-
-与全文查询不同，term-level queries不分析搜索词。相反，词条与存储在字段级别中的术语完全匹配。
+可以使用**term-level queries**根据结构化数据中的精确值查找文档。结构化数据的值包括日期范围、IP地址、价格或产品ID。与全文查询不同，term-level queries不分析搜索词。相反，词条与存储在字段级别中的术语完全匹配。
 
 添加数据
 
@@ -2298,12 +2220,10 @@ PUT /book/_doc/4
 
 - **正则搜索(regexp query)**
 
-  regexp允许使用正则表达式进行term查询.注意regexp如果使用不正确，会给服务器带来很严重的性能压力。比如.*开头的查询，将会匹配所有的倒排索引中
-
-  的关键字，这几乎相当于全表扫描，会很慢。因此如果可以的话，最好在使用正则前，加上匹配的前缀。
+  regexp允许使用正则表达式进行term查询.注意regexp如果使用不正确，会给服务器带来很严重的性能压力。比如.*开头的查询，将会匹配所有的倒排索引中的关键字，这几乎相当于全表扫描，会很慢。因此如果可以的话，最好在使用正则前，加上匹配的前缀。
 
   ```json
-  GET /book/_search
+GET /book/_search
   {
     "query": {
       "regexp": {
@@ -2323,7 +2243,7 @@ PUT /book/_doc/4
     }
   }
   ```
-
+  
 - **模糊搜索(fuzzy query)**
 
   ```json
@@ -2453,18 +2373,14 @@ PUT /book/_doc/4
 
 - **相关性评分排序**
 
-  默认情况下，返回的结果是按照 相关性 进行排序的——最相关的文档排在最前。 在本章的后面部分，我们会解释 相关性 意味着什么以及它是如何计算的， 
+  默认情况下，返回的结果是按照 相关性 进行排序的——最相关的文档排在最前。 在本章的后面部分，我们会解释 相关性 意味着什么以及它是如何计算的， 不过让我们首先看看 sort 参数以及如何使用它。
 
-  不过让我们首先看看 sort 参数以及如何使用它。
-
-  为了按照相关性来排序，需要将相关性表示为一个数值。在 Elasticsearch 中， 相关性得分 由一个浮点数进行表示，并在搜索结果中通过 _score 参数返回，
-
-   默认排序是 _score 降序，按照相关性评分升序排序如下
+  为了按照相关性来排序，需要将相关性表示为一个数值。在 Elasticsearch 中， 相关性得分 由一个浮点数进行表示，并在搜索结果中通过 _score 参数返回，默认排序是 _score 降序，按照相关性评分升序排序如下
 
   ```json
-  POST /book/_search
+POST /book/_search
   {
-    "query": {
+  "query": {
       "match": {
         "description": "solr"
       }
@@ -2486,7 +2402,7 @@ PUT /book/_doc/4
     ]
   }
   ```
-
+  
 - **字段值排序**
 
   ```json
@@ -2729,11 +2645,8 @@ POST /book/_search
 
   实际用法：bulk请求一次不要太大，否则一下积压到内存中，性能会下降。所以，一次请求几千个操作、大小在几M正好。
 
-  bulk会将要处理的数据载入内存中，所以数据量是有限的，最佳的数据两不是一个确定的数据，它取决于你的硬件，你的文档大小以及复杂性，你的索引以及
+  bulk会将要处理的数据载入内存中，所以数据量是有限的，最佳的数据两不是一个确定的数据，它取决于你的硬件，你的文档大小以及复杂性，你的索引以及搜索的负载。一般建议是1000-5000个文档，大小建议是5-15MB，默认不能超过100M，可以在es的配置文件（ES的config下的elasticsearch.yml）中配置。http.max_content_length: 10mb
 
-  搜索的负载。一般建议是1000-5000个文档，大小建议是5-15MB，默认不能超过100M，可以在es的配置文件（ES的config下的elasticsearch.yml）中配置。
-
-  http.max_content_length: 10mb
 
 ### 3.3、Filter DSL
 
@@ -2743,9 +2656,7 @@ Elasticsearch中的所有的查询都会触发相关度得分的计算。对于�
 
 - 过滤器可以被缓存到内存中，这使得在重复的搜索查询上，其要比相应的查询快出许多。
 
-为了理解过滤器，可以将一个查询（像是match_all，match，bool等）和一个过滤器结合起来。我们以范围过滤器为例，它允许我们通过一个区间的值来过滤文
-
-档。这通常被用在数字和日期的过滤上。
+为了理解过滤器，可以将一个查询（像是match_all，match，bool等）和一个过滤器结合起来。我们以范围过滤器为例，它允许我们通过一个区间的值来过滤文档。这通常被用在数字和日期的过滤上。
 
 下面这个例子使用一个被过滤的查询，其返回price值是在200到1000之间（闭区间）的书。
 
@@ -2791,13 +2702,8 @@ Elasticsearch中的所有的查询都会触发相关度得分的计算。对于�
   }
   ```
 
-  分解上面的例子，被过滤的查询包含一个match_all查询（查询部分）和一个过滤器（filter部分）。我们可以在查询部分中放入其他查询，在filter部分放入其
+  分解上面的例子，被过滤的查询包含一个match_all查询（查询部分）和一个过滤器（filter部分）。我们可以在查询部分中放入其他查询，在filter部分放入其它过滤器。在上面的应用场景中，由于所有的在这个范围之内的文档都是平等的（或者说相关度都是一样的），没有一个文档比另一个文档更相关，所以这个时候使用范围过滤器就非常合适了。通常情况下，要决定是使用过滤器还是使用查询，你就需要问自己是否需要相关度得分。如果相关度是不重要的，使用过滤器，否则使用查询。查询和过滤器在概念上类似于SELECT WHERE语句。
 
-  它过滤器。在上面的应用场景中，由于所有的在这个范围之内的文档都是平等的（或者说相关度都是一样的），没有一个文档比另一个文档更相关，所以这个
-
-  时候使用范围过滤器就非常合适了。通常情况下，要决定是使用过滤器还是使用查询，你就需要问自己是否需要相关度得分。如果相关度是不重要的，使用过
-
-  滤器，否则使用查询。查询和过滤器在概念上类似于SELECT WHERE语句。
 
 ### 3.4、定位非法搜索及原因
 
@@ -2831,9 +2737,7 @@ GET /book/_validate/query?explain
 
 聚合分析是数据库中重要的功能特性，完成对一个查询的数据集中数据的聚合计算，如：找出某字段（或计算表达式的结果）的最大值、最小值，计算和、平均值等。Elasticsearch作为搜索引擎兼数据库，同样提供了强大的聚合分析能力。
 
-对一个数据集求最大、最小、和、平均值等指标的聚合，在ES中称为**指标聚合  metric**而关系型数据库中除了有聚合函数外，还可以对查询出的数据进行分组
-
-**group by**，再在组上进行指标聚合。**在 ES 中group by 称为分桶**，**桶聚合** **bucketing**
+对一个数据集求最大、最小、和、平均值等指标的聚合，在ES中称为**指标聚合  metric**而关系型数据库中除了有聚合函数外，还可以对查询出的数据进行分组**group by**，再在组上进行指标聚合。**在 ES 中group by 称为分桶**，**桶聚合** **bucketing**
 
 Elasticsearch聚合分析语法，在查询请求体中以aggregations节点按如下语法定义聚合分析：
 
@@ -3015,9 +2919,7 @@ Elasticsearch聚合分析语法，在查询请求体中以aggregations节点按�
 
 桶聚合：https://www.elastic.co/guide/en/elasticsearch/reference/7.3/search-aggregations-bucket.html
 
-它执行的是对文档分组的操作（与sql中的group by类似），把满足相关特性的文档分到一个桶里，即桶分，输出结果往往是一个个包含多个文档的桶（一个桶就
-
-是一个group）
+它执行的是对文档分组的操作（与sql中的group by类似），把满足相关特性的文档分到一个桶里，即桶分，输出结果往往是一个个包含多个文档的桶（一个桶就是一个group）
 
 - bucket：一个数据分组
 
@@ -3151,9 +3053,7 @@ POST /book/_search
 
 ### 3.6、Elasticsearch零停机索引重建
 
-Elasticsearch是一个实时的分布式搜索引擎，为用户提供搜索服务，当我们决定存储某种数据时，在创建索引的时候需要数据结构完整确定下来，与此同时索引的
-
-设定和很多固定配置将不能改变。当需要改变数据结构时就需要重建索引，为此，Elasticsearch团队提供了辅助工具帮助开发人员进行索引重建。
+Elasticsearch是一个实时的分布式搜索引擎，为用户提供搜索服务，当我们决定存储某种数据时，在创建索引的时候需要数据结构完整确定下来，与此同时索引的设定和很多固定配置将不能改变。当需要改变数据结构时就需要重建索引，为此，Elasticsearch团队提供了辅助工具帮助开发人员进行索引重建。
 
 > 零停机完成索引重建的三种方案。
 
@@ -3161,15 +3061,11 @@ Elasticsearch是一个实时的分布式搜索引擎，为用户提供搜索服�
 
 - **整体介绍**
 
-  系统架构设计中，有关系型数据库用来存储数据，Elasticsearch在系统架构里起到查询加速的作用，如果遇到索引重建的操作，待系统模块发布新版本后，可
-
-  以从数据库将数据查询出来，重新灌到Elasticsearch即可。
+  系统架构设计中，有关系型数据库用来存储数据，Elasticsearch在系统架构里起到查询加速的作用，如果遇到索引重建的操作，待系统模块发布新版本后，可以从数据库将数据查询出来，重新灌到Elasticsearch即可。
 
 - **执行步骤**
 
-  建议的功能方案：数据库 + MQ + 应用模块 + Elasticsearch，可以在MQ控制台发送MQ消息来触发重导数据，按批次对数据进行导入，整个过程异步化处理，
-
-  请求操作示意如下所示：
+  建议的功能方案：数据库 + MQ + 应用模块 + Elasticsearch，可以在MQ控制台发送MQ消息来触发重导数据，按批次对数据进行导入，整个过程异步化处理，请求操作示意如下所示：
 
   ![](../img/Elasticsearch/Elasticsearch-img-26.png)
 
@@ -3179,25 +3075,17 @@ Elasticsearch是一个实时的分布式搜索引擎，为用户提供搜索服�
 
   2. MQ消息被微服务模块的消费者消费，触发ES数据重新导入功能
 
-  3. 微服务模块从数据库里查询数据的总数及批次信息，并将每个数据批次的分页信息重新发送给MQ消息，分页信息包含查询条件和偏移量，此MQ消息还是
+  3. 微服务模块从数据库里查询数据的总数及批次信息，并将每个数据批次的分页信息重新发送给MQ消息，分页信息包含查询条件和偏移量，此MQ消息还是会被微服务的MQ消息者接收处理。
 
-    会被微服务的MQ消息者接收处理。
-
-  4. 微服务根据接收的查询条件和分页信息，从数据库获取到数据后，根据索引结构的定义，将数据组装成ES支持的JSON格式，并执行bulk命令，将数据发送
-
-    给Elasticsearch集群。这样就可以完成索引的重建工作。
+  4. 微服务根据接收的查询条件和分页信息，从数据库获取到数据后，根据索引结构的定义，将数据组装成ES支持的JSON格式，并执行bulk命令，将数据发送给Elasticsearch集群。这样就可以完成索引的重建工作。
 
 - **方案特点**
 
   MQ中间件的选型不做具体要求，常见的rabitmq、activemq、rocketmq等均可。
 
-  在微服务模块方面，提供MQ消息处理接口、数据处理模块需要事先开发的，一般是创建新的索引时，配套把重建的功能也一起做好。整体功能共用一个
+  在微服务模块方面，提供MQ消息处理接口、数据处理模块需要事先开发的，一般是创建新的索引时，配套把重建的功能也一起做好。整体功能共用一个topic，针对每个索引，有单独的结构定义和MQ消息处理tag，代码尽可能复用。处理的批次大小需要根据实际的情况设置。
 
-  topic，针对每个索引，有单独的结构定义和MQ消息处理tag，代码尽可能复用。处理的批次大小需要根据实际的情况设置。
-
-  微服务模块实例会部署多个，数据是分批处理的，批次信息会一次性全部先发送给MQ，各个实例处理的数据相互不重叠，利用MQ消息的异步处理机制，可以
-
-  充分利用并发的优势，加快数据重建的速度。
+  微服务模块实例会部署多个，数据是分批处理的，批次信息会一次性全部先发送给MQ，各个实例处理的数据相互不重叠，利用MQ消息的异步处理机制，可以充分利用并发的优势，加快数据重建的速度。
 
 - **方案缺点**
   
@@ -3209,9 +3097,7 @@ Elasticsearch是一个实时的分布式搜索引擎，为用户提供搜索服�
 
 - **整体介绍**
 
-  利用Elasticsearch自带的一些工具完成索引的重建工作，当然在方案实际落地时，可能也会依赖客户端的一些功能，比如用Java客户端持续的做scroll查询、
-
-  bulk命令的封装等。数据完全自给自足，不依赖其他数据源。
+  利用Elasticsearch自带的一些工具完成索引的重建工作，当然在方案实际落地时，可能也会依赖客户端的一些功能，比如用Java客户端持续的做scroll查询、bulk命令的封装等。数据完全自给自足，不依赖其他数据源。
 
 - **执行步骤**
 
@@ -3221,12 +3107,10 @@ Elasticsearch是一个实时的分布式搜索引擎，为用户提供搜索服�
 
   2.  新建索引book_new，将mapping信息，settings信息等按新的要求全部定义好。
 
-  3. 使用scroll api将数据批量查询出来为了使用 scroll，初始搜索请求应该在查询中指定 scroll 参数，这可以告诉 Elasticsearch 需要保持搜索的上下文环境多
-
-    久,1m 就是一分钟。
+  3. 使用scroll api将数据批量查询出来为了使用 scroll，初始搜索请求应该在查询中指定 scroll 参数，这可以告诉 Elasticsearch 需要保持搜索的上下文环境多久,1m 就是一分钟。
 
     ```json
-    GET /book/_search?scroll=1m 
+  GET /book/_search?scroll=1m 
     {
       "query": {
         "match_all": {}
@@ -3237,31 +3121,31 @@ Elasticsearch是一个实时的分布式搜索引擎，为用户提供搜索服�
       "size": 2
     }
     ```
-
+  
   4. 采用bulk api将scoll查出来的一批数据，批量写入新索引
 
      ```json
-     POST /_bulk 
+   POST /_bulk 
      { "index": { "_index": "book_new", "_id": "对应的id值" }} 
      { 查询出来的数据值 }
      ```
-
+  
   5. 反复执行修改后的步骤3和步骤4，查询一批导入一批，以后可以借助Java Client或其他语言的API支持。
 
      注意做3时需要指定上一次查询的 scroll_id
 
      ```json
-     GET /_search/scroll
+   GET /_search/scroll
      {
        "scroll": "1m",
        "scroll_id": "步骤三中查询出来的值"
      }
      ```
-
+  
   6. 切换别名book_alias到新的索引book_new上面，此时Java客户端仍然使用别名访问，也不需要修改任何代码，不需要停机。
 
      ```json
-     POST /_aliases
+   POST /_aliases
      {
        "actions": [
          {
@@ -3279,14 +3163,12 @@ Elasticsearch是一个实时的分布式搜索引擎，为用户提供搜索服�
        ]
      }
      ```
-
+  
   7. 验证别名查询的是否为新索引的数据
 
 - **方案特点**
 
-  在数据传输上基本自给自足，不依赖于其他数据源，Java客户端不需要停机等待数据迁移，网络传输占用带宽较小。只是scroll查询和bulk提交这部分，数据量
-
-  大时需要依赖一些客户端工具。
+  在数据传输上基本自给自足，不依赖于其他数据源，Java客户端不需要停机等待数据迁移，网络传输占用带宽较小。只是scroll查询和bulk提交这部分，数据量大时需要依赖一些客户端工具。
 
 - **补充一点**
 
@@ -3397,23 +3279,15 @@ Elasticsearch v6.3.1已经支持Reindex API，它对scroll、bulk做了一层封
 
 #### 3.6.4、小结
 
-零停机索引重建操作的三个方案，从自研功能、scroll+bulk到reindex，我们作为Elasticsearch的使用者，三个方案的参与度是逐渐弱化的，但稳定性却是逐渐上
-
-升的，我们需要清楚地去了解各个方案的优劣，适宜的场景，然后根据实际的情况去权衡，哪个方案更适合我们的业务模型。
+零停机索引重建操作的三个方案，从自研功能、scroll+bulk到reindex，我们作为Elasticsearch的使用者，三个方案的参与度是逐渐弱化的，但稳定性却是逐渐上升的，我们需要清楚地去了解各个方案的优劣，适宜的场景，然后根据实际的情况去权衡，哪个方案更适合我们的业务模型。
 
 ### 3.7、Elasticsearch Suggester智能搜索建议
 
-现代的搜索引擎，一般会具备"Suggest As You Type"功能，即在用户输入搜索的过程中，进行自动补全或者纠错。 通过协助用户输入更精准的关键词，提高后续
-
-全文搜索阶段文档匹配的程度。例如在京东上输入部分关键词，甚至输入拼写错误的关键词时，它依然能够提示出用户想要输入的内容:
+现代的搜索引擎，一般会具备"Suggest As You Type"功能，即在用户输入搜索的过程中，进行自动补全或者纠错。 通过协助用户输入更精准的关键词，提高后续全文搜索阶段文档匹配的程度。例如在京东上输入部分关键词，甚至输入拼写错误的关键词时，它依然能够提示出用户想要输入的内容:
 
 ![](../img/Elasticsearch/Elasticsearch-img-27.png)
 
-如果自己亲手去试一下，可以看到京东在用户刚开始输入的时候是自动补全的，而当输入到一定长度，如果因为单词拼写错误无法补全，就开始尝试提示相似的词
-
-那么类似的功能在Elasticsearch里如何实现呢？ 答案就在Suggesters API。 Suggesters基本的运作原理是将输入的文本分解为token，然后在索引的字典里查找相
-
-似的term并返回。 根据使用场景的不同，Elasticsearch里设计了4种类别的Suggester，分别是:
+如果自己亲手去试一下，可以看到京东在用户刚开始输入的时候是自动补全的，而当输入到一定长度，如果因为单词拼写错误无法补全，就开始尝试提示相似的词那么类似的功能在Elasticsearch里如何实现呢？ 答案就在Suggesters API。 Suggesters基本的运作原理是将输入的文本分解为token，然后在索引的字典里查找相似的term并返回。 根据使用场景的不同，Elasticsearch里设计了4种类别的Suggester，分别是:
 
 - Term Suggester
 - Phrase Suggester
@@ -3461,7 +3335,7 @@ POST _bulk/?refresh=true
 
 此时blogs索引里已经有一些文档了，可以进行下一步的探索。为帮助理解，我们先看看哪些term会存在于词典里。
 
- 将输入的文本分析一下: 
+将输入的文本分析一下: 
 
 ```json
 POST _analyze
@@ -3477,9 +3351,7 @@ POST _analyze
 }
 ```
 
-这些分出来的token都会成为词典里一个term，注意有些token会出现多次，因此在倒排索引里记录的词频会比较高，同时记录的还有这些token在原文档里的
-
-偏移量和相对位置信息。
+这些分出来的token都会成为词典里一个term，注意有些token会出现多次，因此在倒排索引里记录的词频会比较高，同时记录的还有这些token在原文档里的偏移量和相对位置信息。
 
 执行一次suggester搜索看看效果: 
 
@@ -3498,11 +3370,7 @@ POST /blogs/_search
 }
 ```
 
-suggest就是一种特殊类型的搜索，DSL内部的"text"指的是api调用方提供的文本，也就是通常用户界面上用户输入的内容。这里的lucne是错误的拼写，模拟用户
-
-输入错误。 "term"表示这是一个term suggester。"field"指定suggester针对的字段，另外有一个可选的"suggest_mode"。范例里的"missing"实际上就是缺省
-
-值，它是什么意思？有点挠头... 还是先看看返回结果吧: 
+suggest就是一种特殊类型的搜索，DSL内部的"text"指的是api调用方提供的文本，也就是通常用户界面上用户输入的内容。这里的lucne是错误的拼写，模拟用户输入错误。 "term"表示这是一个term suggester。"field"指定suggester针对的字段，另外有一个可选的"suggest_mode"。范例里的"missing"实际上就是缺省值，它是什么意思？有点挠头... 还是先看看返回结果吧: 
 
 ```json
 {
@@ -3547,13 +3415,7 @@ suggest就是一种特殊类型的搜索，DSL内部的"text"指的是api调用�
 }
 ```
 
-在返回结果里"suggest" -> "my-suggestion"部分包含了一个数组，每个数组项对应从输入文本分解出来的token（存放在"text"这个key里）以及为该token提供的
-
-建议词项（存放在options数组里)。 示例里返回了"lucne"，"rock"这2个词的建议项(options)，其中"rock"的options是空的，表示没有可以建议的选项，为什么？ 
-
-上面提到了，我们为查询提供的suggest mode是"missing",由于"rock"在索引的词典里已经存在了，够精准，就不建议啦。 只有词典里找不到词，才会为其提供相
-
-似的选项。如果将"suggest_mode"换成"popular"会是什么效果？尝试一下，重新执行查询，返回结果里"rock"这个词的option不再是空的，而是建议为rocks。 
+在返回结果里"suggest" -> "my-suggestion"部分包含了一个数组，每个数组项对应从输入文本分解出来的token（存放在"text"这个key里）以及为该token提供的建议词项（存放在options数组里)。 示例里返回了"lucne"，"rock"这2个词的建议项(options)，其中"rock"的options是空的，表示没有可以建议的选项，为什么？ 上面提到了，我们为查询提供的suggest mode是"missing",由于"rock"在索引的词典里已经存在了，够精准，就不建议啦。 只有词典里找不到词，才会为其提供相似的选项。如果将"suggest_mode"换成"popular"会是什么效果？尝试一下，重新执行查询，返回结果里"rock"这个词的option不再是空的，而是建议为rocks。 
 
 ```json
 {
@@ -3604,19 +3466,13 @@ suggest就是一种特殊类型的搜索，DSL内部的"text"指的是api调用�
 }
 ```
 
-回想一下，rock和rocks在索引词典里都是有的。 不难看出即使用户输入的token在索引的词典里已经有了，但是因为存在一个词频更高的相似项，这个相似项可
+回想一下，rock和rocks在索引词典里都是有的。 不难看出即使用户输入的token在索引的词典里已经有了，但是因为存在一个词频更高的相似项，这个相似项可能是更合适的，就被挑选到options里了。最后还有一个"always" mode，其含义是不管token是否存在于索引词典里都要给出相似项。
 
-能是更合适的，就被挑选到options里了。最后还有一个"always" mode，其含义是不管token是否存在于索引词典里都要给出相似项。
-
-有人可能会问，两个term的相似性是如何判断的？ ES使用了一种叫做Levenstein edit distance的算法，其核心思想就是一个词改动多少个字符就可以和另外一个
-
-词一致。 Term suggester还有其他很多可选参数来控制这个相似性的模糊程度，这里就不一一赘述了。
+有人可能会问，两个term的相似性是如何判断的？ ES使用了一种叫做Levenstein edit distance的算法，其核心思想就是一个词改动多少个字符就可以和另外一个词一致。 Term suggester还有其他很多可选参数来控制这个相似性的模糊程度，这里就不一一赘述了。
 
 #### 3.7.2、Phrase suggester
 
-Phrase suggester在Term suggester的基础上，会考量多个term之间的关系，比如是否同时出现在索引的原文里，相邻程度，以及词频等等。看个范例就比较容
-
-易明白了: 
+Phrase suggester在Term suggester的基础上，会考量多个term之间的关系，比如是否同时出现在索引的原文里，相邻程度，以及词频等等。看个范例就比较容易明白了: 
 
 ```json
 POST /blogs/_search
@@ -3667,19 +3523,11 @@ POST /blogs/_search
 }
 ```
 
-options直接返回一个phrase列表，由于加了highlight选项，被替换的term会被高亮。因为lucene和elasticsearch曾经在同一条原文里出现过，同时替换2个term
-
-的可信度更高，所以打分较高，排在第一位返回。Phrase suggester有相当多的参数用于控制匹配的模糊程度，需要根据实际应用情况去挑选和调试。
+options直接返回一个phrase列表，由于加了highlight选项，被替换的term会被高亮。因为lucene和elasticsearch曾经在同一条原文里出现过，同时替换2个term的可信度更高，所以打分较高，排在第一位返回。Phrase suggester有相当多的参数用于控制匹配的模糊程度，需要根据实际应用情况去挑选和调试。
 
 #### 3.7.3、Completion Suggester
 
-下面来谈一下Completion Suggester，它主要针对的应用场景就是"Auto Completion"。 此场景下用户每输入一个字符的时候，就需要即时发送一次查询请求到后
-
-端查找匹配项，在用户输入速度较高的情况下对后端响应速度要求比较苛刻。因此实现上它和前面两个Suggester采用了不同的数据结构，索引并非通过倒排来完
-
-成，而是将analyze过的数据编码成FST和索引一起存放。对于一个open状态的索引，FST会被ES整个装载到内存里的，进行前缀查找速度极快。但是FST只能用于
-
-前缀查找，这也是Completion Suggester的局限所在。
+下面来谈一下Completion Suggester，它主要针对的应用场景就是"Auto Completion"。 此场景下用户每输入一个字符的时候，就需要即时发送一次查询请求到后端查找匹配项，在用户输入速度较高的情况下对后端响应速度要求比较苛刻。因此实现上它和前面两个Suggester采用了不同的数据结构，索引并非通过倒排来完成，而是将analyze过的数据编码成FST和索引一起存放。对于一个open状态的索引，FST会被ES整个装载到内存里的，进行前缀查找速度极快。但是FST只能用于前缀查找，这也是Completion Suggester的局限所在。
 
 为了使用Completion Suggester，字段的类型需要专门定义如下:
 
@@ -3753,9 +3601,7 @@ POST /blogs_completion/_search?pretty
 }
 ```
 
-值得注意的一点是Completion Suggester在索引原始数据的时候也要经过analyze阶段，取决于选用的analyzer不同，某些词可能会被转换，某些词可能被去除，
-
-这些会影响FST编码结果，也会影响查找匹配的效果。
+值得注意的一点是Completion Suggester在索引原始数据的时候也要经过analyze阶段，取决于选用的analyzer不同，某些词可能会被转换，某些词可能被去除，这些会影响FST编码结果，也会影响查找匹配的效果。
 
 比如我们删除上面的索引，重新设置索引的mapping，将analyzer更改为"english":
 
@@ -3842,40 +3688,22 @@ POST _analyze
 }
 ```
 
-FST(Finite StateTransducers)只编码了这3个token，并且默认的还会记录他们在文档中的位置和分隔符。 用户输入"elastic i"进行查找的时候，输入被分解
+FST(Finite StateTransducers)只编码了这3个token，并且默认的还会记录他们在文档中的位置和分隔符。 用户输入"elastic i"进行查找的时候，输入被分解成"elastic"和"i"，FST没有编码这个“i” , 匹配失败。
 
-成"elastic"和"i"，FST没有编码这个“i” , 匹配失败。
-
-好吧，如果你现在还足够清醒的话，试一下搜索"elastic is"，会发现又有结果，why? 因为这次输入的text经过english analyzer的时候is也被剥离了，只需在FST里
-
-查询"elastic"这个前缀，自然就可以匹配到了。
+好吧，如果你现在还足够清醒的话，试一下搜索"elastic is"，会发现又有结果，why? 因为这次输入的text经过english analyzer的时候is也被剥离了，只需在FST里查询"elastic"这个前缀，自然就可以匹配到了。
 
 其他能影响completion suggester结果的，还有
 
-如"preserve_separators"，"preserve_position_increments"等等mapping参数来控制匹配的模糊程度。以及搜索时可以选用Fuzzy Queries，使得上面例子里
-
-的"elastic i"在使用english analyzer的情况下依然可以匹配到结果。
+如"preserve_separators"，"preserve_position_increments"等等mapping参数来控制匹配的模糊程度。以及搜索时可以选用Fuzzy Queries，使得上面例子里的"elastic i"在使用english analyzer的情况下依然可以匹配到结果。
 
 ```apl
 "preserve_separators": false, 这个设置为false,将忽略空格之类的分隔符 
 "preserve_position_increments": true,如果建议词第一个词是停用词,并且我们使用了过滤停用 词的分析器,需要将此设置为false。
 ```
 
-因此用好Completion Sugester并不是一件容易的事，实际应用开发过程中，需要根据数据特性和业务需要，灵活搭配analyzer和mapping参数，反复调试才可能
+因此用好Completion Sugester并不是一件容易的事，实际应用开发过程中，需要根据数据特性和业务需要，灵活搭配analyzer和mapping参数，反复调试才可能获得理想的补全效果。回到篇首京东或者百度搜索框的补全/纠错功能，如果用ES怎么实现呢？我能想到的一个的实现方式:在用户刚开始输入的过程中，使用Completion Suggester进行关键词前缀匹配，刚开始匹配项会比较多，随着用户输入字符增多，匹配项越来越少。如果用户输入比较精准，可能Completion Suggester的结果已经够好，用户已经可以看到理想的备选项了。
 
-获得理想的补全效果。回到篇首京东或者百度搜索框的补全/纠错功能，如果用ES怎么实现呢？我能想到的一个的实现方式:在用户刚开始输入的过程中，使用
-
-Completion Suggester进行关键词前缀匹配，刚开始匹配项会比较多，随着用户输入字符增多，匹配项越来越少。如果用户输入比较精准，可能Completion 
-
-Suggester的结果已经够好，用户已经可以看到理想的备选项了。
-
-如果Completion Suggester已经到了零匹配，那么可以猜测是否用户有输入错误，这时候可以尝试一下Phrase Suggester。如果Phrase Suggester没有找到任何
-
-option，开始尝试term Suggester。精准程度上(Precision)看： Completion > Phrase > term， 而召回率上(Recall)则反之。从性能上看，Completion Suggester
-
-是最快的，如果能满足业务需求，只用Completion Suggester做前缀匹配是最理想的。 Phrase和Term由于是做倒排索引的搜索，相比较而言性能应该要低不少，
-
-应尽量控制suggester用到的索引的数据量，最理想的状况是经过一定时间预热后，索引可以全量map到内存。
+如果Completion Suggester已经到了零匹配，那么可以猜测是否用户有输入错误，这时候可以尝试一下Phrase Suggester。如果Phrase Suggester没有找到任何option，开始尝试term Suggester。精准程度上(Precision)看： Completion > Phrase > term， 而召回率上(Recall)则反之。从性能上看，Completion Suggester是最快的，如果能满足业务需求，只用Completion Suggester做前缀匹配是最理想的。 Phrase和Term由于是做倒排索引的搜索，相比较而言性能应该要低不少，应尽量控制suggester用到的索引的数据量，最理想的状况是经过一定时间预热后，索引可以全量map到内存。
 
 ```text
 召回率(Recall) = 系统检索到的相关文件 / 系统所有相关的文件总数 
@@ -3907,9 +3735,7 @@ ES提供多种不同的客户端：
 
  1、TransportClient ES提供的传统客户端，官方计划8.0版本删除此客户端。
 
- 2、RestClient RestClient是官方推荐使用的，它包括两种：Java Low Level REST Client和 Java HighLevel REST Client。 ES在6.0之后提供 Java High Level REST 
-
-Client， 两种客户端官方更推荐使用 JavaHigh Level REST Client， 使用时加入对应版本的依赖即可。
+ 2、RestClient RestClient是官方推荐使用的，它包括两种：Java Low Level REST Client和 Java HighLevel REST Client。 ES在6.0之后提供 Java High Level REST Client， 两种客户端官方更推荐使用 JavaHigh Level REST Client， 使用时加入对应版本的依赖即可。
 
 **SpringBoot 中使用 RestClient**
 
@@ -4405,9 +4231,7 @@ Client， 两种客户端官方更推荐使用 JavaHigh Level REST Client， 使
 
 - **节点（Node）**
 
-  - 一个Elasticsearch实例即一个Node，一台机器可以有多个实例，正常使用下每个实例都应该会部署在不同的机器上。Elasticsearch的配置文件中可以通
-
-    过node.master、node.data来设置节点类型。
+  - 一个Elasticsearch实例即一个Node，一台机器可以有多个实例，正常使用下每个实例都应该会部署在不同的机器上。Elasticsearch的配置文件中可以通过node.master、node.data来设置节点类型。
 
   - node.master：表示节点是否具有成为主节点的资格
 
@@ -4448,9 +4272,7 @@ Client， 两种客户端官方更推荐使用 JavaHigh Level REST Client， 使
 
 - **分片**
 
-  每个索引有1个或多个分片，每个分片存储不同的数据。分片可分为主分片（primary shard）和复制分片（replica shard），复制分片是主分片的拷贝。默认
-
-  每个主分片有一个复制分片，每个索引的复制分片的数量可以动态地调整，复制分片从不与它的主分片在同一个节点上
+  每个索引有1个或多个分片，每个分片存储不同的数据。分片可分为主分片（primary shard）和复制分片（replica shard），复制分片是主分片的拷贝。默认每个主分片有一个复制分片，每个索引的复制分片的数量可以动态地调整，复制分片从不与它的主分片在同一个节点上
 
 - **副本**
 
@@ -4476,11 +4298,7 @@ Elasticseasrch的架构遵循其基本概念：一个采用Restful API标准的�
 
 - **第一层 —— Gateway：**
 
-  Elasticsearch支持的索引快照的存储格式，es默认是先把索引存放到内存中，当内存满了之后再持久化到本地磁盘。gateway对索引快照进行存储，当
-
-  Elasticsearch关闭再启动的时候，它就会从这个gateway里面读取索引数据；支持的格式有：本地的Local FileSystem、分布式的Shared FileSystem、
-
-  Hadoop的文件系统HDFS、Amazon（亚马逊）的S3。 
+  Elasticsearch支持的索引快照的存储格式，es默认是先把索引存放到内存中，当内存满了之后再持久化到本地磁盘。gateway对索引快照进行存储，当Elasticsearch关闭再启动的时候，它就会从这个gateway里面读取索引数据；支持的格式有：本地的Local FileSystem、分布式的Shared FileSystem、Hadoop的文件系统HDFS、Amazon（亚马逊）的S3。 
 
 - **第二层 —— Lucene框架：**
 
@@ -4488,17 +4306,11 @@ Elasticseasrch的架构遵循其基本概念：一个采用Restful API标准的�
 
 - **第三层 —— Elasticsearch数据的加工处理方式：**
 
-  Index Module（创建Index模块）、Search Module（搜索模块）、Mapping（映射）、River 代表es的一个数据源（运行在Elasticsearch集群内部的一
-
-  个插件，主要用来从外部获取获取异构数据，然后在Elasticsearch里创建索引；常见的插件有RabbitMQ River、Twitter River）。
+  Index Module（创建Index模块）、Search Module（搜索模块）、Mapping（映射）、River 代表es的一个数据源（运行在Elasticsearch集群内部的一个插件，主要用来从外部获取获取异构数据，然后在Elasticsearch里创建索引；常见的插件有RabbitMQ River、Twitter River）。
 
 - **第四层 —— Elasticsearch发现机制、脚本：**
 
-  Discovery 是Elasticsearch自动发现节点的机制的模块，Zen Discovery和 EC2 discovery。EC2：亚马逊弹性计算云 EC2 discovery主要在亚马云平台中使
-
-  用。Zen Discovery作用就相当于solr cloud中的zookeeper。zen Discovery 从功能上可以分为两部分，第一部分是集群刚启动时的选主，或者是新加入
-
-  集群的节点发现当前集群的Master。第二部分是选主完成后，Master 和 Folower 的相互探活。 
+  Discovery 是Elasticsearch自动发现节点的机制的模块，Zen Discovery和 EC2 discovery。EC2：亚马逊弹性计算云 EC2 discovery主要在亚马云平台中使用。Zen Discovery作用就相当于solr cloud中的zookeeper。zen Discovery 从功能上可以分为两部分，第一部分是集群刚启动时的选主，或者是新加入集群的节点发现当前集群的Master。第二部分是选主完成后，Master 和 Folower 的相互探活。 
 
   Scripting 是脚本执行功能，有这个功能能很方便对查询出来的数据进行加工处理。
 
@@ -4510,9 +4322,8 @@ Elasticseasrch的架构遵循其基本概念：一个采用Restful API标准的�
 
 - **第六层 —— Elasticsearch的API支持模式：**
 
-  RESTFul Style API风格的API接口标准是当下十分流行的。Elasticsearch作为分布式集群，客户端到服务端，节点与节点间通信有TCP和Http通信协议，底
+  RESTFul Style API风格的API接口标准是当下十分流行的。Elasticsearch作为分布式集群，客户端到服务端，节点与节点间通信有TCP和Http通信协议，底层实现为Netty框架
 
-  层实现为Netty框架
 
 #### 4.2.3、解析Elasticsearch的分布式架构
 
@@ -4528,9 +4339,7 @@ Elasticseasrch的架构遵循其基本概念：一个采用Restful API标准的�
 
 - **集群发现机制（cluster discovery）：**
 
-  在当前启动了一个Elasticsearch进程，在启动第二个Elasticsearch进程时，这个进程将作为一个node自动就发现了集群，并自动加入,前提是这些node都必须
-
-  配置一套集群信息。
+  在当前启动了一个Elasticsearch进程，在启动第二个Elasticsearch进程时，这个进程将作为一个node自动就发现了集群，并自动加入,前提是这些node都必须配置一套集群信息。
 
 - **Shard负载均衡：**
 
@@ -4548,9 +4357,7 @@ Elasticseasrch的架构遵循其基本概念：一个采用Restful API标准的�
 
 - **主节点**
 
-  主节点的主要职则是和集群操作的相关内容，如创建或删除索引，跟踪哪些节点是集群的一部分，并决定哪些分片分配给相关的节点。稳定的主节点对集群的
-
-  健康是非常重要的。
+  主节点的主要职则是和集群操作的相关内容，如创建或删除索引，跟踪哪些节点是集群的一部分，并决定哪些分片分配给相关的节点。稳定的主节点对集群的健康是非常重要的。
 
 - **节点对等**
 
@@ -4690,9 +4497,7 @@ es-head主要有三个方面的操作：
 
 **安装步骤：**
 
-ealsticsearch只是后端提供各种api，那么怎么直观的使用它呢？elasticsearch-head将是一款专门针对于elasticsearch的客户端工具 elasticsearch-head配置包，
-
-下载地址：https://github.com/mobz/elasticsearch-head elasticsearch-head是一个基于node.js的前端工程。
+ealsticsearch只是后端提供各种api，那么怎么直观的使用它呢？elasticsearch-head将是一款专门针对于elasticsearch的客户端工具 elasticsearch-head配置包，下载地址：https://github.com/mobz/elasticsearch-head elasticsearch-head是一个基于node.js的前端工程。
 
 - nodejs安装
 
@@ -4843,9 +4648,8 @@ ealsticsearch只是后端提供各种api，那么怎么直观的使用它呢？e
 
 - **Coordinate node**
 
-  协调节点，一个节点只作为接收、转发请求到其他节点、汇总各节点返回数据等功能的节点，就叫协调节点，如果仅担任协调节点，将上两个配置设为false。
+  协调节点，一个节点只作为接收、转发请求到其他节点、汇总各节点返回数据等功能的节点，就叫协调节点，如果仅担任协调节点，将上两个配置设为false。说明：一个节点可以充当一个或多个角色，默认三个角色都有 
 
-  说明：一个节点可以充当一个或多个角色，默认三个角色都有 
 
 ```apl
 节点角色如何分配： 
@@ -4857,11 +4661,7 @@ B. 中大规模集群（十个以上节点），应考虑单独的角色充当�
 
 **脑裂问题**：
 
-一个集群中只有一个A主节点，A主节点因为需要处理的东西太多或者网络过于繁忙，从而导致其他从节点ping不通A主节点，这样其他从节点就会认为A主节点不
-
-可用了，就会重新选出一个新的主节点B。过了一会A主节点恢复正常了，这样就出现了两个主节点，导致一部分数据来源于A主节点，另外一部分数据来源于B主
-
-节点，出现数据不一致问题，这就是**脑裂**。
+一个集群中只有一个A主节点，A主节点因为需要处理的东西太多或者网络过于繁忙，从而导致其他从节点ping不通A主节点，这样其他从节点就会认为A主节点不可用了，就会重新选出一个新的主节点B。过了一会A主节点恢复正常了，这样就出现了两个主节点，导致一部分数据来源于A主节点，另外一部分数据来源于B主节点，出现数据不一致问题，这就是**脑裂**。
 
 6.x和之前版本尽量避免脑裂，需要添加最小数量的主节点配置：
 
@@ -4869,9 +4669,7 @@ B. 中大规模集群（十个以上节点），应考虑单独的角色充当�
 
 这个参数控制的是，选举主节点时需要看到最少多少个具有master资格的活节点，才能进行选举。官方的推荐值是(N/2)+1，其中N是具有master资格的节点的数量。
 
-在新版7.X的ES中，对es的集群发现系统做了调整，不再有discovery.zen.minimum_master_nodes这个控制集群脑裂的配置，转而由集群自主控制，并且新版在
-
-启动一个新的集群的时候需要有cluster.initial_master_nodes初始化集群列表。
+在新版7.X的ES中，对es的集群发现系统做了调整，不再有discovery.zen.minimum_master_nodes这个控制集群脑裂的配置，转而由集群自主控制，并且新版在启动一个新的集群的时候需要有cluster.initial_master_nodes初始化集群列表。
 
 在es7中，discovery.zen.* 开头的参数，有些已经失效
 
@@ -4896,13 +4694,7 @@ ElasticSearch推荐的最大JVM堆空间是30~32G, 所以把你的分片最大�
 
 例如, 你认为你的数据能达到200GB, 推荐你最多分配7到8个分片。
 
-在开始阶段, 一个好的方案是根据你的节点数量按照1.5~3倍的原则来创建分片. 例如,如果你有3个节点,则推荐你创建的分片数最多不超过9(3x3)个。当性能下降
-
-时，增加节点，ES会平衡分片的放置。对于基于日期的索引需求, 并且对索引数据的搜索场景非常少. 也许这些索引量将达到成百上千, 但每个索引的数据量只有
-
-1GB甚至更小. 对于这种类似场景, 建议只需要为索引分配1个分片。如日志管理就是一个日期的索引需求，日期索引会很多，但每个索引存放的日志数据量就很
-
-少。
+在开始阶段, 一个好的方案是根据你的节点数量按照1.5~3倍的原则来创建分片. 例如,如果你有3个节点,则推荐你创建的分片数最多不超过9(3x3)个。当性能下降时，增加节点，ES会平衡分片的放置。对于基于日期的索引需求, 并且对索引数据的搜索场景非常少. 也许这些索引量将达到成百上千, 但每个索引的数据量只有1GB甚至更小. 对于这种类似场景, 建议只需要为索引分配1个分片。如日志管理就是一个日期的索引需求，日期索引会很多，但每个索引存放的日志数据量就很少。
 
 #### 4.4.5、分片应该设置几个副本
 
@@ -4923,23 +4715,15 @@ PUT /my_temp_index/_settings
 
 ### 4.5、分布式集群调优策略
 
-拉勾网是一家专注于互联网垂直招聘的互联网公司，我们在生产环境的多个场景下都使用到了Elasticsearch，比如针对C端个人用户的职位搜索、针对B端企业用
+拉勾网是一家专注于互联网垂直招聘的互联网公司，我们在生产环境的多个场景下都使用到了Elasticsearch，比如针对C端个人用户的职位搜索、针对B端企业用户的简历搜索，另外也在后台日志分析平台（ELK）中应用到，所部署的Elasticsearch版本上覆盖了2.x、5.x、6.x和7.x多个版本。在拉勾网数据总量达百亿级documents，日增量近1T（近1百万document）的高并发海量数据场景下，研发和运维团队积累了丰富的Elasticsearch调优经验。
 
-户的简历搜索，另外也在后台日志分析平台（ELK）中应用到，所部署的Elasticsearch版本上覆盖了2.x、5.x、6.x和7.x多个版本。在拉勾网数据总量达百亿级
-
-documents，日增量近1T（近1百万document）的高并发海量数据场景下，研发和运维团队积累了丰富的Elasticsearch调优经验。
-
-拉勾网生产环境Elasticsearch集群有多套，但节点数并没有很多，针对C端个人用户的职位搜索只有7个实例节点，ELK日志平台中Elasticsearch实例节点数也仅仅
-
-只有4个，考虑到资金投入、当前及未来一定时间内数据的增量情况等，研发和运维团队在竭尽所能的通过调优方式保证Elasticsearch正常高效运转。
+拉勾网生产环境Elasticsearch集群有多套，但节点数并没有很多，针对C端个人用户的职位搜索只有7个实例节点，ELK日志平台中Elasticsearch实例节点数也仅仅只有4个，考虑到资金投入、当前及未来一定时间内数据的增量情况等，研发和运维团队在竭尽所能的通过调优方式保证Elasticsearch正常高效运转。
 
 接下来，我们从Index(写)和Search(读)两个方面给大家分享调优经验
 
 #### 4.5.1、Index(写)调优
 
-拉勾网的职位数据和简历数据，首先都是进入MySQL集群的，我们从MySQL的原始表里面抽取并存储到ES 的Index，而MySQL的原始数据也是经常在变化的，所
-
-以快速写入Elasticsearch、以保持Elasticsearch和MySQL的数据及时同步也是很重要的。
+拉勾网的职位数据和简历数据，首先都是进入MySQL集群的，我们从MySQL的原始表里面抽取并存储到ES 的Index，而MySQL的原始数据也是经常在变化的，所以快速写入Elasticsearch、以保持Elasticsearch和MySQL的数据及时同步也是很重要的。
 
 拉勾网的工程师主要是下面几个方面优化来提高写入的速度
 
@@ -4956,15 +4740,11 @@ documents，日增量近1T（近1百万document）的高并发海量数据场景
 
 - **自动生成doc ID**
 
-  通过Elasticsearch写入流程可以看出，如果写入doc时如果外部指定了id，则Elasticsearch会先尝试读取原来doc的版本号，以判断是否需要更新。这会涉及一
-
-  次读取磁盘的操作，通过自动生成doc ID可以避免这个环节。
+  通过Elasticsearch写入流程可以看出，如果写入doc时如果外部指定了id，则Elasticsearch会先尝试读取原来doc的版本号，以判断是否需要更新。这会涉及一次读取磁盘的操作，通过自动生成doc ID可以避免这个环节。
 
 - **合理设置mappings**
 
-  - 将不需要建立索引的字段index属性设置为not_analyzed或no。对字段不分词，或者不索引，可以减少很多运算操作，降低CPU占用。 尤其是binary类
-
-    型，默认情况下占用CPU非常高，而这种类型进行分词通常没有什么意义。
+  - 将不需要建立索引的字段index属性设置为not_analyzed或no。对字段不分词，或者不索引，可以减少很多运算操作，降低CPU占用。 尤其是binary类型，默认情况下占用CPU非常高，而这种类型进行分词通常没有什么意义。
 
   - 减少字段内容长度，如果原始数据的大段内容无须全部建立 索引，则可以尽量减少不必要的内容。
 
@@ -4972,9 +4752,7 @@ documents，日增量近1T（近1百万document）的高并发海量数据场景
 
 - **调整_source字段**
 
-  source 字段用于存储 *doc* 原始数据，对于部分不需要存储的字段，可以通过 *includes excludes*过 滤，或者将source禁用，一般用于索引和数据分离，这样可
-
-  以降低 I/O 的压力，不过实际场景中大多不会禁用_source。
+  source 字段用于存储 *doc* 原始数据，对于部分不需要存储的字段，可以通过 *includes excludes*过 滤，或者将source禁用，一般用于索引和数据分离，这样可以降低 I/O 的压力，不过实际场景中大多不会禁用_source。
 
 - **对analyzed的字段禁用norms**
 
@@ -4990,12 +4768,10 @@ documents，日增量近1T（近1百万document）的高并发海量数据场景
 
 - **调整索引的刷新间隔**
 
-  该参数缺省是1s，强制ES每秒创建一个新segment，从而保证新写入的数据近实时的可见、可被搜索到。比如该参数被调整为30s，降低了刷新的次数，把刷
-
-  新操作消耗的系统资源释放出来给index操作使用。
+  该参数缺省是1s，强制ES每秒创建一个新segment，从而保证新写入的数据近实时的可见、可被搜索到。比如该参数被调整为30s，降低了刷新的次数，把刷新操作消耗的系统资源释放出来给index操作使用。
 
   ```json
-  PUT /my_index/_settings
+PUT /my_index/_settings
   {
    "index" : {
         "refresh_interval": "30s"
@@ -5003,24 +4779,20 @@ documents，日增量近1T（近1百万document）的高并发海量数据场景
   }
   # 这种方案以牺牲可见性的方式，提高了index操作的性能。
   ```
-
+  
 - **批处理**
 
   批处理把多个index操作请求合并到一个batch中去处理，和mysql的jdbc的bacth有类似之处。如图：
 
   ![](../img/Elasticsearch/Elasticsearch-img-31.png)
 
-  比如每批1000个documents是一个性能比较好的size。每批中多少document条数合适，受很多因素影响而不同，如单个document的大小等。ES官网建议通
-
-  过在单个node、单个shard做性能基准测试来确定这个参数的最优值。
+  比如每批1000个documents是一个性能比较好的size。每批中多少document条数合适，受很多因素影响而不同，如单个document的大小等。ES官网建议通过在单个node、单个shard做性能基准测试来确定这个参数的最优值。
 
 - **Document的路由处理**
 
   当对一批中的documents进行index操作时，该批index操作所需的线程的个数由要写入的目的shard的个数决定。看下图：
 
-  ![](../img/Elasticsearch/Elasticsearch-img-32.png)上图中，有2批documents写入ES, 每批都需要写入4个shard，所以总共需要8个线程。如果能减少shard的个数，那么耗费的线程个数也会减少。例如下图，
-
-  两批中每批的shard个数都只有2个，总共线程消耗个数4个，减少一半。
+  ![](../img/Elasticsearch/Elasticsearch-img-32.png)上图中，有2批documents写入ES, 每批都需要写入4个shard，所以总共需要8个线程。如果能减少shard的个数，那么耗费的线程个数也会减少。例如下图，两批中每批的shard个数都只有2个，总共线程消耗个数4个，减少一半。
 
   默认的routing就是*id*，也可以在发送请求的时候，手动指定一个*routing value*，比如说*put/index/*doc/id?**routing=user_id**
 
@@ -5038,15 +4810,9 @@ documents，日增量近1T（近1百万document）的高并发海量数据场景
 
   ![](../img/Elasticsearch/Elasticsearch-img-34.png)
 
-  当搜索单天的数据，只需要查询一个索引的shards就可以。当需要查询多天的数据时，需要查询多个索引的shards。这种方案其实和数据库的分表、分库、分
+  当搜索单天的数据，只需要查询一个索引的shards就可以。当需要查询多天的数据时，需要查询多个索引的shards。这种方案其实和数据库的分表、分库、分区查询方案相比，思路类似，小数据范围查询而不是大海捞针。
 
-  区查询方案相比，思路类似，小数据范围查询而不是大海捞针。
-
-  开始的方案是建一个index，当数据量增大的时候，就扩容增加index的shard的个数。当shards增大时，要搜索的shards个数也随之显著上升。基于数据分组
-
-  的思路，可以基于client进行数据分组，每一个client只需依赖自己的index的数据shards进行搜索，而不是所有的数据shards，大大提高了搜索的性能，如下
-
-  图:
+  开始的方案是建一个index，当数据量增大的时候，就扩容增加index的shard的个数。当shards增大时，要搜索的shards个数也随之显著上升。基于数据分组的思路，可以基于client进行数据分组，每一个client只需依赖自己的index的数据shards进行搜索，而不是所有的数据shards，大大提高了搜索的性能，如下图:
 
   ![](../img/Elasticsearch/Elasticsearch-img-35.png)
 
@@ -5054,12 +4820,10 @@ documents，日增量近1T（近1百万document）的高并发海量数据场景
 
   在搜索时候使用Query，需要为Document的相关度打分。使用Filter，没有打分环节处理，做的事情更少，而且filter理论上更快一些。
 
-  如果搜索不需要打分，可以直接使用filter查询。如果部分搜索需要打分，建议使用'bool'查询。这种方式可以把打分的查询和不打分的查询组合在一起使用，
-
-  如：
+  如果搜索不需要打分，可以直接使用filter查询。如果部分搜索需要打分，建议使用'bool'查询。这种方式可以把打分的查询和不打分的查询组合在一起使用，如：
 
   ```json
-  GET /_search 
+GET /_search 
   { 
       "query": { 
           "bool": { 
@@ -5077,39 +4841,32 @@ documents，日增量近1T（近1百万document）的高并发海量数据场景
       } 
   }
   ```
-
+  
 - **ID字段定义为keyword**
 
-  一般情况，如果ID字段**不会**被用作Range 类型搜索字段，都可以定义成keyword类型。这是因为keyword会被优化，以便进行terms查询。Integers等数字类
-
-  的mapping类型，会被优化来进行range类型搜索。
+  一般情况，如果ID字段**不会**被用作Range 类型搜索字段，都可以定义成keyword类型。这是因为keyword会被优化，以便进行terms查询。Integers等数字类的mapping类型，会被优化来进行range类型搜索。
 
   将integers改成keyword类型之后，搜索性能大约能提升**30%**。
 
 - **别让用户的无约束的输入拖累了ES集群的性能**
 
-  拉勾工程师通过监控发现所有node的CPU 使用及其负载突然异常飙高。通过对**Slow Logs**分析发现，用户查询输入的条件中夹带了很多'OR'语句以及通配
-
-  符“*”开头的字符串，如下图
+  拉勾工程师通过监控发现所有node的CPU 使用及其负载突然异常飙高。通过对**Slow Logs**分析发现，用户查询输入的条件中夹带了很多'OR'语句以及通配符“*”开头的字符串，如下图
 
   ![](../img/Elasticsearch/Elasticsearch-img-36.png)
 
-  为了不让用户无约束的查询语句拖累ES集群的查询性能，可以限制用户用来查询的keywords。对于可以用来查询的keyworkds，也可以写成文档来帮助用户
+  为了不让用户无约束的查询语句拖累ES集群的查询性能，可以限制用户用来查询的keywords。对于可以用来查询的keyworkds，也可以写成文档来帮助用户更正确的使用。
 
-  更正确的使用。
 
 ## 5、Elasticsearch之数据模型构建
 
 ### 5.1、什么是数据模型
 
-数据模型是抽象描述现实世界的一种工具和方法，是通过抽象实体及实体之间联系的形式，用图形化的形式去描述业务规则的过程，从而表示现实世界中事务以及
-
-相互关系的一种映射。
+数据模型是抽象描述现实世界的一种工具和方法，是通过抽象实体及实体之间联系的形式，用图形化的形式去描述业务规则的过程，从而表示现实世界中事务以及相互关系的一种映射。
 
 核心概念：
 1. 实体：现实世界中存在的可以相互区分的事物或概念称为实体。
 
-  实体可以分为事物实体和概念实体。例如：一个学生、一个程序员等是事物实体。一门课、一个班级等称为概念实体。
+   实体可以分为事物实体和概念实体。例如：一个学生、一个程序员等是事物实体。一门课、一个班级等称为概念实体。
 
 2. 实体的属性：每个实体都有自己的特征，利用实体的属性可以描述不同的实体。例如。学生实体的属性为姓名、性别、年龄等。
 
@@ -5129,9 +4886,7 @@ documents，日增量近1T（近1百万document）的高并发海量数据场景
 
   确定系统的核心需求和范围边界，设计实体与实体之间的关系。
 
-  在概念建模阶段，我们只需要关注实体即可，不用关注任何实现细节。很多人都希望在这个阶段把具体表结构，索引，约束，甚至是存储过程都想好，没必
-
-  要！因为这些东西是我们在物理建模阶段需要考虑的东西，这个时候考虑还为时尚早。
+  在概念建模阶段，我们只需要关注实体即可，不用关注任何实现细节。很多人都希望在这个阶段把具体表结构，索引，约束，甚至是存储过程都想好，没必要！因为这些东西是我们在物理建模阶段需要考虑的东西，这个时候考虑还为时尚早。
 
   概念模型在整个数据建模时间占比：10%左右。
 
@@ -5142,9 +4897,7 @@ documents，日增量近1T（近1百万document）的高并发海量数据场景
   - 进一步梳理业务需求
   - 确定每个实体的属性、关系和约束等
 
-  逻辑模型是对概念模型的进一步分解和细化，描述了实体、实体属性以及实体之间的关系，是概念模型延伸，一般的逻辑模型有第三范式，星型模型和雪花模
-
-  型。模型的主要元素为主题、实体、实体属性和关系。
+  逻辑模型是对概念模型的进一步分解和细化，描述了实体、实体属性以及实体之间的关系，是概念模型延伸，一般的逻辑模型有第三范式，星型模型和雪花模型。模型的主要元素为主题、实体、实体属性和关系。
 
   雪花模型和星状模型的主要区别是维度的层级 标准的星状模型只有一层 而雪花模型可能涉及多层。
 
@@ -5152,12 +4905,11 @@ documents，日增量近1T（近1百万document）的高并发海量数据场景
 
   - 一是便于技术开发人员和业务人员以及用户进行沟通 交流，使得整个概念模型更易于理解，进一步明确需求。
 
-  - 二是作为物理模型设计的基础，由于逻辑模型不依赖于具体的数据库实现，使用逻辑模型可以生成针对具体 数据库管理系统的物理模型，保证物理模型充
+  - 二是作为物理模型设计的基础，由于逻辑模型不依赖于具体的数据库实现，使用逻辑模型可以生成针对具体 数据库管理系统的物理模型，保证物理模型充分满足用户的需求。
 
-    分满足用户的需求。
-
-  逻辑模型在整个数据建模时间占比：60—70%左右。
-
+  
+逻辑模型在整个数据建模时间占比：60—70%左右。
+  
 - **物理建模阶段**
 
   物理建模阶段，主要做一件事：
@@ -5261,9 +5013,7 @@ PUT blog_index
 }
 ```
 
-这个索引 Mapping中，_source设置为false，同时各字段的store根据需求设置了true和false。 url的doc_values设置为false，该字段url不用于聚合和排序操作。
-
-建 mapping 时，可以为字符串（专指 keyword） 指定 ignore_above ，用来限定字符长度。超过ignore_above 的字符会被存储，但不会被索引。
+这个索引 Mapping中，_source设置为false，同时各字段的store根据需求设置了true和false。 url的doc_values设置为false，该字段url不用于聚合和排序操作。建 mapping 时，可以为字符串（专指 keyword） 指定 ignore_above ，用来限定字符长度。超过ignore_above 的字符会被存储，但不会被索引。
 
 注意，是字符长度，一个英文字母是一个字符，一个汉字也是一个字符。
 
@@ -5277,16 +5027,12 @@ ignore_above 可以在创建 mapping 时指定。
 
 - **Application-side joins**
 
-  这种方式，索引之间完全独立（利于对数据进行标准化处理），由应用端的多次查询来实现近似关联关系查询。这种方法适用于关联的实体只有少量的文档记
-
-  录的情况（使用ES的terms查询具有上限，默认1024，具体可在elasticsearch.yml中修改），并且最好它们很少改变。这将允许应用程序对结果进行缓存，并
-
-  避免经常运行第一次查询。
+  这种方式，索引之间完全独立（利于对数据进行标准化处理），由应用端的多次查询来实现近似关联关系查询。这种方法适用于关联的实体只有少量的文档记录的情况（使用ES的terms查询具有上限，默认1024，具体可在elasticsearch.yml中修改），并且最好它们很少改变。这将允许应用程序对结果进行缓存，并避免经常运行第一次查询。
 
   ```json
-  PUT /user/_doc/1
+PUT /user/_doc/1
   {
-    "name": "John Smith",
+  "name": "John Smith",
     "email": "john@smith.com",
     "dob": "1970/10/24"
   }
@@ -5315,17 +5061,15 @@ ignore_above 可以在创建 mapping 时指定。
     }
   }
   ```
-
+  
 - **Data denormalization（数据的非规范化）**
 
-  这种方式，通俗点就是通过字段冗余，以一张大宽表来实现粗粒度的index，这样可以充分发挥扁平化的优势。但是这是以牺牲索引性能及灵活度为代价的。使用的前提：冗余的字段应该是很少改变的，比较适合与一对少量关系的处理。当业务数据库并非采用非规范化设计时，这时要将数据同步到作为二级
-
-  索引库的ES中，就需要进行定制化开发，基于特定业务进行应用开发来处理join关联和实体拼接。
+  这种方式，通俗点就是通过字段冗余，以一张大宽表来实现粗粒度的index，这样可以充分发挥扁平化的优势。但是这是以牺牲索引性能及灵活度为代价的。使用的前提：冗余的字段应该是很少改变的，比较适合与一对少量关系的处理。当业务数据库并非采用非规范化设计时，这时要将数据同步到作为二级索引库的ES中，就需要进行定制化开发，基于特定业务进行应用开发来处理join关联和实体拼接。
 
   说明：宽表处理在处理一对多、多对多关系时，会有字段冗余问题，适合“一对少量”且这个“一”更新不频繁的应用场景。
 
   ```json
-  DELETE /user
+DELETE /user
   DELETE /blogpost
   
   PUT /user/_doc/1
@@ -5363,21 +5107,17 @@ ignore_above 可以在创建 mapping 时指定。
     }
   }
   ```
-
+  
 - **Nested objects（嵌套文档）**
 
-  索引性能和查询性能二者不可兼得，必须进行取舍。嵌套文档将实体关系嵌套组合在单文档内部，这种方式牺牲建立索引性能（文档内任一属性变化都需要重
+  索引性能和查询性能二者不可兼得，必须进行取舍。嵌套文档将实体关系嵌套组合在单文档内部，这种方式牺牲建立索引性能（文档内任一属性变化都需要重新索引该文档）来换取查询性能，比较适合于一对少量的关系处理。
 
-  新索引该文档）来换取查询性能，比较适合于一对少量的关系处理。
-
-  当使用嵌套文档时，使用通用的查询方式是无法访问到的，必须使用合适的查询方式（nested query、nested filter、nested facet等），很多场景下，使用
-
-  嵌套文档的复杂度在于索引阶段对关联关系的组织拼装。
+  当使用嵌套文档时，使用通用的查询方式是无法访问到的，必须使用合适的查询方式（nested query、nested filter、nested facet等），很多场景下，使用嵌套文档的复杂度在于索引阶段对关联关系的组织拼装。
 
   ```json
-  PUT /drivers
+PUT /drivers
   {
-    "mappings": {
+  "mappings": {
       "properties": {
         "driver": {
           "type": "nested",
@@ -5402,11 +5142,11 @@ ignore_above 可以在创建 mapping 时指定。
     }
   }
   ```
-
+  
   ```json
   PUT /drivers/_doc/1
   {
-    "driver": {
+  "driver": {
       "last_name": "McQueen",
       "vehicle": [
         {
@@ -5437,11 +5177,11 @@ ignore_above 可以在创建 mapping 时指定。
     }
   }
   ```
-
+  
   ```json
   GET /drivers/_search
   {
-    "query": {
+  "query": {
       "nested": {
         "path": "driver",
         "query": {
@@ -5469,19 +5209,15 @@ ignore_above 可以在创建 mapping 时指定。
     }
   }
   ```
-
+  
 - **Parent/child relationships（父子文档）**
 
-  父子文档牺牲了一定的查询性能来换取索引性能,适用于写多读少的场景。父子文档相比嵌套文档较灵活，适用于“一对大量”且这个“一”不是海量的应用场景，
-
-  该方式比较耗内存和CPU，这种方式查询比嵌套方式慢5~10倍，且需要使用特定的has_parent和has_child过滤器查询语法，查询结果不能同时返回父子文档
-
-  （一次join查询只能返回一种类型的文档）。受限于父子文档必须在同一分片上(可以通过routing指定父文档id即可)操作子文档时需要指定routing。 
+  父子文档牺牲了一定的查询性能来换取索引性能,适用于写多读少的场景。父子文档相比嵌套文档较灵活，适用于“一对大量”且这个“一”不是海量的应用场景，该方式比较耗内存和CPU，这种方式查询比嵌套方式慢5~10倍，且需要使用特定的has_parent和has_child过滤器查询语法，查询结果不能同时返回父子文档（一次join查询只能返回一种类型的文档）。受限于父子文档必须在同一分片上(可以通过routing指定父文档id即可)操作子文档时需要指定routing。 
 
   ```json
-  PUT my_index
+PUT my_index
   {
-    "mappings": {
+  "mappings": {
       "properties": {
         "my_join_field": {
           "type": "join",
@@ -5515,13 +5251,13 @@ ignore_above 可以在创建 mapping 时指定。
     }
   }
   ```
-
+  
   查询那个文档有子文档
-
+  
   ```json
-  POST my_index/_search
+POST my_index/_search
   {
-    "query": {
+  "query": {
       "has_child": {
         "type": "answer",
         "query": {
@@ -5533,13 +5269,13 @@ ignore_above 可以在创建 mapping 时指定。
     }
   }
   ```
-
+  
   根据父文档id查询子文档
-
+  
   ```json
-  GET my_index/_search
+GET my_index/_search
   {
-    "query": {
+  "query": {
       "parent_id": {
         "type": "answer",
         "id": "1"
@@ -6143,13 +5879,7 @@ ignore_above 可以在创建 mapping 时指定。
 
 - **Segments in Lucene**
 
-  众所周知，Elasticsearch 存储的基本单元是 shard ， ES 中一个 Index 可能分为多个 shard， 事实上每个 shard 都是一个 Lucence 的 Index，并且每个 
-
-  Lucence Index 由多个 Segment 组成， 每个Segment 事实上是一些倒排索引的集合， 每次创建一个新的 Document ， 都会归属于一个新的Segment， 而
-
-  不会去修改原来的 Segment 。且每次的文档删除操作，会仅仅标记 Segment 中该文档为删除状态， 而不会真正的立马物理删除， 所以说 ES 的 index 可以
-
-  理解为一个抽象的概念。 就像下图所示：
+  众所周知，Elasticsearch 存储的基本单元是 shard ， ES 中一个 Index 可能分为多个 shard， 事实上每个 shard 都是一个 Lucence 的 Index，并且每个 Lucence Index 由多个 Segment 组成， 每个Segment 事实上是一些倒排索引的集合， 每次创建一个新的 Document ， 都会归属于一个新的Segment， 而不会去修改原来的 Segment 。且每次的文档删除操作，会仅仅标记 Segment 中该文档为删除状态， 而不会真正的立马物理删除， 所以说 ES 的 index 可以理解为一个抽象的概念。 就像下图所示：
 
   ![](../img/Elasticsearch/Elasticsearch-img-42.png)
 
@@ -6165,9 +5895,7 @@ ignore_above 可以在创建 mapping 时指定。
 
 - **Refresh in Elasticsearch**
 
-  在 Elasticsearch 中， _refresh 操作默认每秒执行一次， 意味着将内存 buffer 的数据写入到一个新的 Segment 中，这个时候索引变成了可被检索的。写入新
-
-  Segment后会清空内存buffer。
+  在 Elasticsearch 中， _refresh 操作默认每秒执行一次， 意味着将内存 buffer 的数据写入到一个新的 Segment 中，这个时候索引变成了可被检索的。写入新Segment后会清空内存buffer。
 
   ![](../img/Elasticsearch/Elasticsearch-img-46.png)
 
@@ -6179,23 +5907,17 @@ ignore_above 可以在创建 mapping 时指定。
 
 #### 7.1.2、近实时搜索
 
-提交（Commiting）一个新的段到磁盘需要一个 fsync 来确保段被物理性地写入磁盘，这样在断电的时候就不会丢失数据。 但是 fsync 操作代价很大; 如果每次索
-
-引一个文档都去执行一次的话会造成很大的性能问题。
+提交（Commiting）一个新的段到磁盘需要一个 fsync 来确保段被物理性地写入磁盘，这样在断电的时候就不会丢失数据。 但是 fsync 操作代价很大; 如果每次索引一个文档都去执行一次的话会造成很大的性能问题。
 
 我们需要的是一个更轻量的方式来使一个文档可被搜索，这意味着 fsync 要从整个过程中被移除。
 
-在 Elasticsearch 和磁盘之间是**文件系统缓存**。 像之前描述的一样， 在内存索引缓冲区中的文档会被写入到一个新的段中。 但是这里新段会被先写入到文件系统
-
-缓存--这一步代价会比较低，稍后再被刷新到磁盘--这一步代价比较高。不过只要文件已经在系统缓存中， 就可以像其它文件一样被打开和读取了。
+在 Elasticsearch 和磁盘之间是**文件系统缓存**。 像之前描述的一样， 在内存索引缓冲区中的文档会被写入到一个新的段中。 但是这里新段会被先写入到文件系统缓存--这一步代价会比较低，稍后再被刷新到磁盘--这一步代价比较高。不过只要文件已经在系统缓存中， 就可以像其它文件一样被打开和读取了。
 
 **在内存缓冲区中包含了新文档的 Lucene 索引**
 
 ![](../img/Elasticsearch/Elasticsearch-img-48.png)
 
-Lucene 允许新段被写入和打开--使其包含的文档在未进行一次完整提交时便对搜索可见。 这种方式比进行一次提交代价要小得多，并且在不影响性能的前提下可
-
-以被频繁地执行。
+Lucene 允许新段被写入和打开--使其包含的文档在未进行一次完整提交时便对搜索可见。 这种方式比进行一次提交代价要小得多，并且在不影响性能的前提下可以被频繁地执行。
 
 **缓冲区的内容已经被写入一个可被搜索的段中，但还没有进行提交**
 
@@ -6203,23 +5925,17 @@ Lucene 允许新段被写入和打开--使其包含的文档在未进行一次�
 
 ##### 7.1.2.1、原理
 
-下图表示是 es 写操作流程，当一个写请求发送到 es 后，es 将数据写入 memory buffer 中，并添加事务日志（ translog ）。如果每次一条数据写入内存后立即
-
-写到硬盘文件上，由于写入的数据肯定是离散的，因此写入硬盘的操作也就是随机写入了。硬盘随机写入的效率相当低，会严重降低es的性能。
+下图表示是 es 写操作流程，当一个写请求发送到 es 后，es 将数据写入 memory buffer 中，并添加事务日志（ translog ）。如果每次一条数据写入内存后立即写到硬盘文件上，由于写入的数据肯定是离散的，因此写入硬盘的操作也就是随机写入了。硬盘随机写入的效率相当低，会严重降低es的性能。
 
 因此 es 在设计时在 memory buffer 和硬盘间加入了 Linux 的高速缓存（ File system cache ）来提高 es 的写效率。
 
-当写请求发送到 es 后，es 将数据暂时写入 memory buffer 中，此时写入的数据还不能被查询到。默认设置下，es 每1秒钟将 memory buffer 中的数据 refresh 
-
-到 Linux 的 File system cache ，并清空 memory buffer ，此时写入的数据就可以被查询到了。
+当写请求发送到 es 后，es 将数据暂时写入 memory buffer 中，此时写入的数据还不能被查询到。默认设置下，es 每1秒钟将 memory buffer 中的数据 refresh 到 Linux 的 File system cache ，并清空 memory buffer ，此时写入的数据就可以被查询到了。
 
 ![](../img/Elasticsearch/Elasticsearch-img-50.png)
 
 ##### 7.1.2.2、refresh API
 
-在 Elasticsearch 中，写入和打开一个新段的轻量的过程叫做 refresh 。 默认情况下每个分片会每秒自动刷新一次。这就是为什么我们说 Elasticsearch 是 近 实时
-
-搜索： 文档的变化并不是立即对搜索可见，但会在一秒之内变为可见。
+在 Elasticsearch 中，写入和打开一个新段的轻量的过程叫做 refresh 。 默认情况下每个分片会每秒自动刷新一次。这就是为什么我们说 Elasticsearch 是 近 实时搜索： 文档的变化并不是立即对搜索可见，但会在一秒之内变为可见。
 
 这些行为可能会对新用户造成困惑： 他们索引了一个文档然后尝试搜索它，但却没有搜到。这个问题的解决办法是用 refresh API 执行一次手动刷新：
 
@@ -6235,9 +5951,7 @@ PUT /test/_doc/2?refresh=true
 {"test": "test"}
 ```
 
-并不是所有的情况都需要每秒刷新。可能你正在使用 Elasticsearch 索引大量的日志文件， 你可能想优化索引速度而不是近实时搜索， 可以通过设置 
-
-refresh_interval ， 降低每个索引的刷新频率
+并不是所有的情况都需要每秒刷新。可能你正在使用 Elasticsearch 索引大量的日志文件， 你可能想优化索引速度而不是近实时搜索， 可以通过设置 refresh_interval ， 降低每个索引的刷新频率
 
 ```json
 PUT /my_logs 
@@ -6259,17 +5973,11 @@ PUT /my_logs/_settings
 
 ##### 7.1.3.1、原理
 
-如果没有用 fsync 把数据从文件系统缓存刷（flush）到硬盘，我们不能保证数据在断电甚至是程序正常退出之后依然存在。为了保证 Elasticsearch 的可靠性，需
+如果没有用 fsync 把数据从文件系统缓存刷（flush）到硬盘，我们不能保证数据在断电甚至是程序正常退出之后依然存在。为了保证 Elasticsearch 的可靠性，需要确保数据变化被持久化到磁盘。
 
-要确保数据变化被持久化到磁盘。
+在动态更新索引时，我们说一次完整的提交会将段刷到磁盘，并写入一个包含所有段列表的提交点。Elasticsearch 在启动或重新打开一个索引的过程中使用这个提交点来判断哪些段隶属于当前分片。
 
-在动态更新索引时，我们说一次完整的提交会将段刷到磁盘，并写入一个包含所有段列表的提交点。Elasticsearch 在启动或重新打开一个索引的过程中使用这个
-
-提交点来判断哪些段隶属于当前分片。
-
-即使通过每秒刷新（refresh）实现了近实时搜索，我们仍然需要经常进行完整提交来确保能从失败中恢复。但在两次提交之间发生变化的文档怎么办？我们也不
-
-希望丢失掉这些数据。
+即使通过每秒刷新（refresh）实现了近实时搜索，我们仍然需要经常进行完整提交来确保能从失败中恢复。但在两次提交之间发生变化的文档怎么办？我们也不希望丢失掉这些数据。
 
 Elasticsearch 增加了一个 translog ，或者叫事务日志，在每一次对 Elasticsearch 进行操作时均进行了日志记录。通过 translog ，整个流程看起来是下面这样：
 
@@ -6301,13 +6009,9 @@ Elasticsearch 增加了一个 translog ，或者叫事务日志，在每一次�
   - 文件系统缓存通过 fsync 被刷新（flush）。
   - 老的 translog 被删除。
 
-  translog 提供所有还没有被刷到磁盘的操作的一个持久化纪录。当 Elasticsearch 启动的时候， 它会从磁盘中使用最后一个提交点去恢复已知的段，并且会重
+  translog 提供所有还没有被刷到磁盘的操作的一个持久化纪录。当 Elasticsearch 启动的时候， 它会从磁盘中使用最后一个提交点去恢复已知的段，并且会重放 translog 中所有在最后一次提交后发生的变更操作。
 
-  放 translog 中所有在最后一次提交后发生的变更操作。
-
-  translog 也被用来提供实时 CRUD 。当你试着通过 ID 查询、更新、删除一个文档，它会在尝试从相应的段中检索之前， 首先检查 translog 任何最近的变
-
-  更。这意味着它总是能够实时地获取到文档的最新版本。
+  translog 也被用来提供实时 CRUD 。当你试着通过 ID 查询、更新、删除一个文档，它会在尝试从相应的段中检索之前， 首先检查 translog 任何最近的变更。这意味着它总是能够实时地获取到文档的最新版本。
 
   **在刷新（flush）之后，段被全量提交，并且事务日志被清空**
 
@@ -6315,9 +6019,7 @@ Elasticsearch 增加了一个 translog ，或者叫事务日志，在每一次�
 
 ##### 7.1.3.2、flush API
 
-这个执行一个提交并且截断 translog 的行为在 Elasticsearch 被称作一次 flush 。 分片每 30 分钟被自动刷新（flush），或者在 translog 太大的时候也会刷新。
-
-flush API 可以 被用来执行一个手工的刷新（flush）:
+这个执行一个提交并且截断 translog 的行为在 Elasticsearch 被称作一次 flush 。 分片每 30 分钟被自动刷新（flush），或者在 translog 太大的时候也会刷新。flush API 可以 被用来执行一个手工的刷新（flush）:
 
 ```apl
 # 刷新（flush） blogs 索引。
@@ -6328,9 +6030,7 @@ POST /_flush?wait_for_ongoin
 
 我们很少需要自己手动执行一个的 flush 操作；通常情况下，自动刷新就足够了。
 
-这就是说，在重启节点或关闭索引之前执行 flush有益于你的索引。当 Elasticsearch 尝试恢复或重新打开一个索引， 它需要重放 translog 中所有的操作，所以如
-
-果日志越短，恢复越快。
+这就是说，在重启节点或关闭索引之前执行 flush有益于你的索引。当 Elasticsearch 尝试恢复或重新打开一个索引， 它需要重放 translog 中所有的操作，所以如果日志越短，恢复越快。
 
 > **Translog** **有多安全？**
 >
@@ -6352,9 +6052,7 @@ PUT /my_index/_settings
 }
 ```
 
-这个选项可以针对索引单独设置，并且可以动态进行修改。如果你决定使用异步 translog 的话，你需要 保证 在发生 crash 时，丢失掉 sync_interval 时间段的数
-
-据也无所谓。请在决定前知晓这个特性。
+这个选项可以针对索引单独设置，并且可以动态进行修改。如果你决定使用异步 translog 的话，你需要 保证 在发生 crash 时，丢失掉 sync_interval 时间段的数据也无所谓。请在决定前知晓这个特性。
 
 如果你不确定这个行为的后果，最好是使用默认的参数（ "index.translog.durability": "request" ）来避免数据丢失。
 
@@ -6362,13 +6060,9 @@ PUT /my_index/_settings
 
 #### 7.2.1、段合并机制
 
-由于自动刷新流程每秒会创建一个新的段 ，这样会导致短时间内的段数量暴增。而段数目太多会带来较大的麻烦。 每一个段都会消耗文件句柄、内存和 CPU 运行
+由于自动刷新流程每秒会创建一个新的段 ，这样会导致短时间内的段数量暴增。而段数目太多会带来较大的麻烦。 每一个段都会消耗文件句柄、内存和 CPU 运行周期。更重要的是，每个搜索请求都必须轮流检查每个段；所以段越多，搜索也就越慢。
 
-周期。更重要的是，每个搜索请求都必须轮流检查每个段；所以段越多，搜索也就越慢。
-
-Elasticsearch 通过在后台进行段合并来解决这个问题。小的段被合并到大的段，然后这些大的段再被合并到更大的段。段合并的时候会将那些旧的已删除文档从
-
-文件系统中清除。 被删除的文档（或被更新文档的旧版本）不会被拷贝到新的大段中。
+Elasticsearch 通过在后台进行段合并来解决这个问题。小的段被合并到大的段，然后这些大的段再被合并到更大的段。段合并的时候会将那些旧的已删除文档从文件系统中清除。 被删除的文档（或被更新文档的旧版本）不会被拷贝到新的大段中。
 
 启动段合并在进行索引和搜索时会自动进行。这个流程像在图中提到的一样工作：
 
@@ -6390,11 +6084,7 @@ Elasticsearch 通过在后台进行段合并来解决这个问题。小的段被
 
   ![](../img/Elasticsearch/Elasticsearch-img-56.png)
 
-合并大的段需要消耗大量的 I/O 和 CPU 资源，如果任其发展会影响搜索性能。Elasticsearch 在默认情况下会对合并流程进行资源限制，所以搜索仍然有足够的资
-
-源很好地执行。默认情况下，归并线程的限速配置 indices.store.throttle.max_bytes_per_sec 是 20MB。对于写入量较大，磁盘转速较高，甚至使用 SSD 盘的服
-
-务器来说，这个限速是明显过低的。对于 ELK Stack 应用，建议可以适当调大到100MB或者更高。
+合并大的段需要消耗大量的 I/O 和 CPU 资源，如果任其发展会影响搜索性能。Elasticsearch 在默认情况下会对合并流程进行资源限制，所以搜索仍然有足够的资源很好地执行。默认情况下，归并线程的限速配置 indices.store.throttle.max_bytes_per_sec 是 20MB。对于写入量较大，磁盘转速较高，甚至使用 SSD 盘的服务器来说，这个限速是明显过低的。对于 ELK Stack 应用，建议可以适当调大到100MB或者更高。
 
 ```json
 PUT /_cluster/settings 
@@ -6419,13 +6109,9 @@ index.merge.policy.max_merged_segment 默认 5 GB，大于这个大小的 segmen
 
 #### 7.2.3、optimize API
 
-optimize API 大可看做是 强制合并 API。它会将一个分片强制合并到 max_num_segments 参数指定大小的段数目。 这样做的意图是减少段的数量（通常减少到
+optimize API 大可看做是 强制合并 API。它会将一个分片强制合并到 max_num_segments 参数指定大小的段数目。 这样做的意图是减少段的数量（通常减少到一个），来提升搜索性能。
 
-一个），来提升搜索性能。
-
-在特定情况下，使用 optimize API 颇有益处。例如在日志这种用例下，每天、每周、每月的日志被存储在一个索引中。 老的索引实质上是只读的；它们也并不太
-
-可能会发生变化。在这种情况下，使用optimize 优化老的索引，将每一个分片合并为一个单独的段就很有用了；这样既可以节省资源，也可以使搜索更加快速：
+在特定情况下，使用 optimize API 颇有益处。例如在日志这种用例下，每天、每周、每月的日志被存储在一个索引中。 老的索引实质上是只读的；它们也并不太可能会发生变化。在这种情况下，使用optimize 优化老的索引，将每一个分片合并为一个单独的段就很有用了；这样既可以节省资源，也可以使搜索更加快速：
 
 ```apl
 POST /logstash-2014-10/_optimize?max_num_segments=1
@@ -6443,19 +6129,13 @@ forceMergeRequest.maxNumSegments(1)
 2. 用户下单购买
 3. 更新商品信息，将库存数减一
 
-如果是多线程操作，就可能有多个线程并发的去执行上述的3步骤流程，假如此时有两个人都来读取商品数据，两个线程并发的服务于两个人，同时在进行商品库
-
-存数据的修改。假设库存为100件 正确的情况：线程A将库存-1，设置为99件，线程B接着读取99件，再-1，变为98件。如果A,B线程都读取的为100件，A处理完
-
-之后修改为99件，B处理完之后再次修改为99件，此时结果就出错了。
+如果是多线程操作，就可能有多个线程并发的去执行上述的3步骤流程，假如此时有两个人都来读取商品数据，两个线程并发的服务于两个人，同时在进行商品库存数据的修改。假设库存为100件 正确的情况：线程A将库存-1，设置为99件，线程B接着读取99件，再-1，变为98件。如果A,B线程都读取的为100件，A处理完之后修改为99件，B处理完之后再次修改为99件，此时结果就出错了。
 
 #### 7.3.2、解决方案
 
 ##### 7.3.2.1、悲观锁
 
-顾名思义，就是很悲观，每次去拿数据的时候都认为被人会修改，所以每次拿数据的时候都会加锁，以防别人修改，直到操作完成后，才会被别人执行。常见的关
-
-系型数据库，就用到了很多这样的机制，如行锁，表锁，写锁，都是在操作之前加锁。
+顾名思义，就是很悲观，每次去拿数据的时候都认为被人会修改，所以每次拿数据的时候都会加锁，以防别人修改，直到操作完成后，才会被别人执行。常见的关系型数据库，就用到了很多这样的机制，如行锁，表锁，写锁，都是在操作之前加锁。
 
 - 悲观锁的优点：方便，直接加锁，对外透明，不需要额外的操作。
 
@@ -6465,11 +6145,7 @@ forceMergeRequest.maxNumSegments(1)
 
 ##### 7.3.2.2、乐观锁
 
-乐观锁不加锁，每个线程都可以任意操作。比如每条文档中有一个version字段，新建文档后为1，修改一次累加，线程A,B同时读取到数据，version=1，A处理完
-
-之后库存为99，在写入es的时候会跟es中的版本号比较，都是1，则写入成功，version=2，B处理完之后也为99，存入es时与es中的数据的版本号version=2相
-
-比，明显不同，此时不会用99去更新，而是重新读取最新的数据，再减一，变为98，执行上述操作写入。
+乐观锁不加锁，每个线程都可以任意操作。比如每条文档中有一个version字段，新建文档后为1，修改一次累加，线程A,B同时读取到数据，version=1，A处理完之后库存为99，在写入es的时候会跟es中的版本号比较，都是1，则写入成功，version=2，B处理完之后也为99，存入es时与es中的数据的版本号version=2相比，明显不同，此时不会用99去更新，而是重新读取最新的数据，再减一，变为98，执行上述操作写入。
 
 ![](../img/Elasticsearch/Elasticsearch-img-58.png)
 
@@ -6479,15 +6155,11 @@ Elasticsearch的后台都是多线程异步的，多个请求之间是乱序的�
 
 Elasticsearch的多线程异步并发修改是基于自己的_version版本号进行乐观锁并发控制的。
 
-在后修改的先到时，比较版本号,版本号相同修改可以成功，而当先修改的后到时，也会比较一下_version版本号，如果不相等就再次读取新的数据修改。这样结果
-
-会就会保存为一个正确状态。
+在后修改的先到时，比较版本号,版本号相同修改可以成功，而当先修改的后到时，也会比较一下_version版本号，如果不相等就再次读取新的数据修改。这样结果会就会保存为一个正确状态。
 
 删除操作也会对这条数据的版本号加1
 
-在删除一个document之后，可以从一个侧面证明，它不是立即物理删除掉的，因为它的一些版本号等信息还是保留着的。先删除一条document，再重新创建这
-
-条document，其实会在delete version基础之上，再把version号加1。
+在删除一个document之后，可以从一个侧面证明，它不是立即物理删除掉的，因为它的一些版本号等信息还是保留着的。先删除一条document，再重新创建这条document，其实会在delete version基础之上，再把version号加1。
 
 ##### 7.3.2.4、es的乐观锁并发控制示例
 
@@ -6576,12 +6248,10 @@ Elasticsearch的多线程异步并发修改是基于自己的_version版本号�
   }
   ```
 
-  基于最新的数据和版本号(以前是version 现在是if_seq_no和if_primary_term )，去进行修改，修改后，带上最新的版本号，可能这个步骤会需要反复执行好几
-
-  次，才能成功，特别是在多线程并发更新同一条数据很频繁的情况下
+  基于最新的数据和版本号(以前是version 现在是if_seq_no和if_primary_term )，去进行修改，修改后，带上最新的版本号，可能这个步骤会需要反复执行好几次，才能成功，特别是在多线程并发更新同一条数据很频繁的情况下
 
   ```json
-  PUT /test_index/_doc/4?if_seq_no=1&if_primary_term=1 
+PUT /test_index/_doc/4?if_seq_no=1&if_primary_term=1 
   {
     "test_field": "client2 changed"
   }
@@ -6595,13 +6265,7 @@ es提供了一个feature，就是说，你可以不用它提供的内部_version
 ?version=1&version_type=external
 ```
 
-区别在于，*version*方式，只有当你提供的*version*与*es*中的version一模一样的时候，才可以进行修改，只要不一样，就报错；当version_type=external的时候，只
-
-有当你提供的version比es中的_version大的时候，才能完成修改
-
-es，if_seq_no=0&if_primary_term=1和 文档中的值相等 才能更新成功
-
-es，_version=1，?version>1&version_type=external，才能成功，比如说?version=2&version_type=external
+区别在于，*version*方式，只有当你提供的*version*与*es*中的version一模一样的时候，才可以进行修改，只要不一样，就报错；当version_type=external的时候，只有当你提供的version比es中的`_version`大的时候，才能完成修改es，if_seq_no=0&if_primary_term=1和 文档中的值相等 才能更新成功es，_version=1，?version>1&version_type=external，才能成功，比如说?version=2&version_type=external
 
 代码示例：
 
@@ -6714,11 +6378,7 @@ es，_version=1，?version>1&version_type=external，才能成功，比如说?ve
 
   （2）举例
 
-  比如：
-
-   1个primary shard，3个replica。那么quorum=((1 + 3) / 2) + 1 = 3，要求3个primary shard+1个replica shard=4个shard中必须有3个shard是要处于active
-
-  状态，若这时候只有两台机器的话，会出现什么情况？
+  比如：1个primary shard，3个replica。那么quorum=((1 + 3) / 2) + 1 = 3，要求3个primary shard+1个replica shard=4个shard中必须有3个shard是要处于active状态，若这时候只有两台机器的话，会出现什么情况？
 
   ![](../img/Elasticsearch/Elasticsearch-img-59.png)
 
@@ -6734,14 +6394,12 @@ es，_version=1，?version>1&version_type=external，才能成功，比如说?ve
 
   从ES5.0后，原先执行put 带 consistency=all / quorum 参数的，都报错了，提示语法错误。
 
-  原因是consistency检查是在Put之前做的。然而，虽然检查的时候，shard满足quorum，但是真正从primary shard写到replica之前，仍会出现shard挂掉，
-
-  但Update Api会返回succeed。因此，这个检查并不能保证replica成功写入，甚至这个primary shard是否能成功写入也未必能保证。
+  原因是consistency检查是在Put之前做的。然而，虽然检查的时候，shard满足quorum，但是真正从primary shard写到replica之前，仍会出现shard挂掉，但Update Api会返回succeed。因此，这个检查并不能保证replica成功写入，甚至这个primary shard是否能成功写入也未必能保证。
 
   因此，修改了语法，用了 下面的 wait_for_active_shards，因为这个更能清楚表述，而没有歧义。
 
   ```json
-  PUT /test_index/_doc/1?wait_for_active_shards=2&timeout=10s
+PUT /test_index/_doc/1?wait_for_active_shards=2&timeout=10s
   { "name":"xiao mi" }
   ```
 
@@ -6773,9 +6431,7 @@ searchRequest.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
 
   向索引的所有分片 （ shard）都发出查询请求， 各分片返回的时候把元素文档 （ document）和计算后的排名信息一起返回。
 
-  这种搜索方式是最快的。 因为相比下面的几种搜索方式， 这种查询方法只需要去 shard查询一次。 但是各个 shard 返回的结果的数量之和可能是用户要求的 
-
-  size 的 n 倍。
+  这种搜索方式是最快的。 因为相比下面的几种搜索方式， 这种查询方法只需要去 shard查询一次。 但是各个 shard 返回的结果的数量之和可能是用户要求的 size 的 n 倍。
 
   **优点：**这种搜索方式是最快的。因为相比后面的几种es的搜索方式，这种查询方法只需要去shard查询一次。
 
@@ -6783,13 +6439,7 @@ searchRequest.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
 
 - **DFS query and fetch**
 
-  这个D是Distributed，F是frequency的缩写，至于S是Scatter的缩写，整个DFS是分布式词频率和文档频率散发的缩写。 DFS 其实就是在进行真正的查询之
-
-  前， 先把各个分片的词频率和文档频率收集一下， 然后进行词搜索的时候， 各分片依据全局的词频率和文档频率进行搜索和排名。这种方式比第一种方式多
-
-  了一个 DFS 步骤(初始化散发(initial scatter))，可以更精确控制搜索打分和排名。也就是在进行查询之前，先对所有分片发送请求， 把所有分片中的词频和文
-
-  档频率等打分依据全部汇总到一块，再执行后面的操作。
+  这个D是Distributed，F是frequency的缩写，至于S是Scatter的缩写，整个DFS是分布式词频率和文档频率散发的缩写。 DFS 其实就是在进行真正的查询之前， 先把各个分片的词频率和文档频率收集一下， 然后进行词搜索的时候， 各分片依据全局的词频率和文档频率进行搜索和排名。这种方式比第一种方式多了一个 DFS 步骤(初始化散发(initial scatter))，可以更精确控制搜索打分和排名。也就是在进行查询之前，先对所有分片发送请求， 把所有分片中的词频和文档频率等打分依据全部汇总到一块，再执行后面的操作。
 
   **优点：**数据排名准确
 
@@ -6799,16 +6449,14 @@ searchRequest.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
 
   如果你搜索时， 没有指定搜索方式， 就是使用的这种搜索方式。 这种搜索方式， 大概分两个步骤：
 
-  第一步， 先向所有的 shard 发出请求， 各分片只返回文档 id(注意， 不包括文档 document)和排名相关的信息(也就是文档对应的分值)， 然后按照各分片返
-
-  回的文档的分数进行重新排序和排名， 取前size 个文档。
+  第一步， 先向所有的 shard 发出请求， 各分片只返回文档 id(注意， 不包括文档 document)和排名相关的信息(也就是文档对应的分值)， 然后按照各分片返回的文档的分数进行重新排序和排名， 取前size 个文档。
 
   第二步， 根据文档 id 去相关的 shard 取 document。 这种方式返回的 document 数量与用户要求的大小是相等的。
 
   **详细过程:** 
 
   > 1.发送查询到每个shard 
-  >
+>
   > 2.找到所有匹配的文档，并使用本地的Term/Document Frequency信息进行打分 
   >
   > 3.对结果构建一个优先队列（排序，标页等） 
@@ -6820,7 +6468,7 @@ searchRequest.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
   > 6.最终，实际文档从他们各自所在的独立的shard上检索出来 
   >
   > 7.结果被返回给用户
-
+  
   **优点：**返回的数据量是准确的。
 
   **缺点：**性能一般，并且数据排名不准确。
@@ -6851,9 +6499,7 @@ searchRequest.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
 
   **优点：**返回的数据量是准确的，数据排名准确
 
-  **缺点：**性能最差【 这个最差只是表示在这四种查询方式中性能最慢， 也不至于不能忍受，如果对查询性能要求不是非常高， 而对查询准确度要求比较高的时
-
-  候可以考虑这个】
+  **缺点：**性能最差【 这个最差只是表示在这四种查询方式中性能最慢， 也不至于不能忍受，如果对查询性能要求不是非常高， 而对查询准确度要求比较高的时候可以考虑这个】
 
 ### 7.6、文档增删改和搜索请求过程
 
